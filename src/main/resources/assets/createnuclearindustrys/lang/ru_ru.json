@@ -1,0 +1,77 @@
+{
+  "itemGroup.createnuclearindustrys": "Create Nuclear Industrys",
+
+  "block.createnuclearindustrys.uranium_ore_block": "Урановая руда",
+  "block.createnuclearindustrys.uranium_fuel_rod": "Урановый топливный стержень",
+  "block.createnuclearindustrys.boron_control_rod": "Боровый регулирующий стержень",
+  "block.createnuclearindustrys.heat_gauge": "Тепловой датчик",
+  "block.createnuclearindustrys.heat_pipe": "Тепловая труба",
+  "block.createnuclearindustrys.thermal_generator": "Термогенератор",
+  "block.createnuclearindustrys.zinc_rod": "Цинковый стержень",
+
+  "item.createnuclearindustrys.uranium_ore": "Урановая руда",
+  "item.createnuclearindustrys.boron_ore": "Боровая руда",
+  "item.createnuclearindustrys.powdered_boron": "Боровой порошок",
+  "item.createnuclearindustrys.mutated_bread": "Мутировавший хлеб",
+  "item.createnuclearindustrys.boron_carbide": "Карбид бора",
+  "item.createnuclearindustrys.boron_pills": "Боровые таблетки",
+  "item.createnuclearindustrys.uranium_dough": "Урановое тесто",
+  "item.createnuclearindustrys.enriched_uranium_powder": "Обогащённый урановый порошок",
+  "item.createnuclearindustrys.uranium_pills": "Урановые таблетки",
+  "item.createnuclearindustrys.uranium_bread": "Урановый хлеб",
+  "item.createnuclearindustrys.yellow_cake": "Жёлтый кек",
+  "item.createnuclearindustrys.potassium_iodide": "Йодид калия",
+  "item.createnuclearindustrys.gaseous_uranium_bucket": "Ведро газообразного урана",
+
+  "block.createnuclearindustrys.uranium_fuel_rod.tooltip.summary": "_Топливная активная зона_ ядерного реактора деления.",
+  "block.createnuclearindustrys.uranium_fuel_rod.tooltip.condition1": "При облучении",
+  "block.createnuclearindustrys.uranium_fuel_rod.tooltip.behaviour1": "Поглощает излучение соседних стержней, генерируя _тепло_, которое распространяется через подключённые _тепловые трубы_.",
+  "block.createnuclearindustrys.uranium_fuel_rod.tooltip.condition2": "При приближении к критической температуре",
+  "block.createnuclearindustrys.uranium_fuel_rod.tooltip.behaviour2": "Риск _расплавления_! Установите рядом _боровые регулирующие стержни_ для поглощения избыточного излучения.",
+
+  "block.createnuclearindustrys.boron_control_rod.tooltip.summary": "Подавляет _ядерные реакции_, поглощая свободные частицы излучения.",
+  "block.createnuclearindustrys.boron_control_rod.tooltip.condition1": "При размещении рядом с урановыми стержнями",
+  "block.createnuclearindustrys.boron_control_rod.tooltip.behaviour1": "Поглощает поступающие _частицы излучения_, замедляя цепную реакцию и предотвращая _нагрев_ соседних стержней.",
+
+  "block.createnuclearindustrys.heat_gauge.tooltip.summary": "Отслеживает _температуру_ подключённой тепловой сети.",
+  "block.createnuclearindustrys.heat_gauge.tooltip.condition1": "При подключении к тепловой сети",
+  "block.createnuclearindustrys.heat_gauge.tooltip.behaviour1": "Отображает текущий _уровень тепла_ в градусах. Разместите между реактором и генератором для контроля выработки и предотвращения перегрева.",
+
+  "block.createnuclearindustrys.heat_pipe.tooltip.summary": "Передаёт _тепловую энергию_ между компонентами тепловой сети.",
+  "block.createnuclearindustrys.heat_pipe.tooltip.condition1": "При подключении к источникам тепла",
+  "block.createnuclearindustrys.heat_pipe.tooltip.behaviour1": "Постепенно _выравнивает температуру_ по всем подключённым узлам. Направляйте энергию от _реактора_ к _термогенератору_ с помощью труб.",
+
+  "block.createnuclearindustrys.thermal_generator.tooltip.summary": "Преобразует _тепловую энергию_ в _вращательное усилие_.",
+  "block.createnuclearindustrys.thermal_generator.tooltip.condition1": "При подключении к тепловой сети",
+  "block.createnuclearindustrys.thermal_generator.tooltip.behaviour1": "Начинает вращать _вал_, как только температура в сети превышает 10°. Скорость и _нагрузочная способность_ зависят от уровня нагрева.",
+  "block.createnuclearindustrys.thermal_generator.tooltip.condition2": "При пиковой температуре",
+  "block.createnuclearindustrys.thermal_generator.tooltip.behaviour2": "Поддерживайте подачу топлива и _поток охлаждающей жидкости_ для сохранения выработки.",
+
+  "item.createnuclearindustrys.mutated_bread.tooltip.summary": "Это мутировавший хлеб",
+  "item.createnuclearindustrys.mutated_bread.tooltip.condition1": "- Так что порядок. Главное, чтобы никто хлеб не перемещал.",
+  "item.createnuclearindustrys.mutated_bread.tooltip.behaviour1": "- Вопрос.",
+  "item.createnuclearindustrys.mutated_bread.tooltip.condition2": "- Задавай вопрос, солдат.",
+  "item.createnuclearindustrys.mutated_bread.tooltip.behaviour2": "- А если перемещал?",
+  "item.createnuclearindustrys.mutated_bread.tooltip.condition3": "- Что?",
+  "item.createnuclearindustrys.mutated_bread.tooltip.behaviour3": "- Ты сам сказал.",
+  "item.createnuclearindustrys.mutated_bread.tooltip.condition4": "- Сколько хлеба?",
+  "item.createnuclearindustrys.mutated_bread.tooltip.behaviour4": "- Три дня подряд я только этим и занимался.",
+
+  "createnuclearindustrys.display_source.heat_gauge_temperature": "Температура теплового датчика",
+  "createnuclearindustrys.display_source.thermal_generator_water": "Количество воды",
+  "createnuclearindustrys.display_source.thermal_generator_steam": "Количество пара",
+
+  "effect.createnuclearindustrys.radiation_sickness": "Лучевая болезнь",
+  "effect.createnuclearindustrys.radiation_protection": "Защита от радиации",
+
+  "fluid_type.createnuclearindustrys.steam": "Пар",
+  "item.createnuclearindustrys.steam_bucket": "Ведро пара",
+
+  "createnuclearindustrys.configuration.title": "Конфигурация Create Nuclear Industrys",
+  "createnuclearindustrys.configuration.section.createnuclearindustrys.common.toml": "Конфигурация Create Nuclear Industrys",
+  "createnuclearindustrys.configuration.section.createnuclearindustrys.common.toml.title": "Конфигурация Create Nuclear Industrys",
+  "createnuclearindustrys.configuration.items": "Список предметов",
+  "createnuclearindustrys.configuration.logDirtBlock": "Блок грязи в журнале",
+  "createnuclearindustrys.configuration.magicNumberIntroduction": "Текст магического числа",
+  "createnuclearindustrys.configuration.magicNumber": "Магическое число"
+}

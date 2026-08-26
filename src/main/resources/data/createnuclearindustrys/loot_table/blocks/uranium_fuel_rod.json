@@ -2,19 +2,23 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "condition": "minecraft:survives_explosion"
-        }
-      ],
+      "rolls": 1,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "createnuclearindustrys:uranium_fuel_rod"
         }
       ],
-      "rolls": 1.0
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "function": "createnuclearindustrys:uranium_fuel_rod_loot"
     }
   ]
 }

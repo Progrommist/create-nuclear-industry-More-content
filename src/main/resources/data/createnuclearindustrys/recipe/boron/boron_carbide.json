@@ -1,0 +1,17 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "minecraft:coal"
+    },
+    {
+      "item": "createnuclearindustrys:powdered_boron"
+    }
+  ],
+  "results": [
+    {
+      "count": 2,
+      "id": "createnuclearindustrys:boron_carbide"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "createnuclearindustrys:zinc_rod"
+  },
+  "results": [
+    {
+      "id": "createnuclearindustrys:uranium_fuel_rod"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "createnuclearindustrys:unprocessed_uranium_fuel_rod"
+        },
+        {
+          "item": "createnuclearindustrys:uranium_pills"
+        }
+      ],
+      "results": [
+        {
+          "id": "createnuclearindustrys:unprocessed_uranium_fuel_rod"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "createnuclearindustrys:unprocessed_uranium_fuel_rod"
+        },
+        {
+          "item": "createnuclearindustrys:uranium_pills"
+        }
+      ],
+      "results": [
+        {
+          "id": "createnuclearindustrys:unprocessed_uranium_fuel_rod"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "createnuclearindustrys:unprocessed_uranium_fuel_rod"
+        },
+        {
+          "item": "createnuclearindustrys:uranium_pills"
+        }
+      ],
+      "results": [
+        {
+          "id": "createnuclearindustrys:unprocessed_uranium_fuel_rod"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "createnuclearindustrys:unprocessed_uranium_fuel_rod"
+        },
+        {
+          "item": "createnuclearindustrys:uranium_pills"
+        }
+      ],
+      "results": [
+        {
+          "id": "createnuclearindustrys:unprocessed_uranium_fuel_rod"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "createnuclearindustrys:unprocessed_uranium_fuel_rod"
+        },
+        {
+          "item": "createnuclearindustrys:uranium_pills"
+        }
+      ],
+      "results": [
+        {
+          "id": "createnuclearindustrys:unprocessed_uranium_fuel_rod"
+        }
+      ]
+    }
+  ],
+  "transitional_item": {
+    "id": "createnuclearindustrys:unprocessed_uranium_fuel_rod"
+  }
+}

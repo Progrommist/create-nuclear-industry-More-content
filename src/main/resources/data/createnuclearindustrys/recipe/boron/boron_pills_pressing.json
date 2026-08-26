@@ -1,0 +1,13 @@
+{
+  "type": "create:pressing",
+  "ingredients": [
+    {
+      "item": "createnuclearindustrys:boron_carbide"
+    }
+  ],
+  "results": [
+    {
+      "id": "createnuclearindustrys:boron_pills"
+    }
+  ]
+}

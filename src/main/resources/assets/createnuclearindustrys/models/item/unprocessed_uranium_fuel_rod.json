@@ -1,0 +1,85 @@
+{
+	"format_version": "1.21.11",
+	"credit": "Made with Blockbench",
+	"ambientocclusion": false,
+	"render_type": "minecraft:cutout",
+	"textures": {
+		"3": "createnuclearindustrys:block/row",
+		"particle": "createnuclearindustrys:block/uranium_fuel_rod",
+		"wall": "createnuclearindustrys:block/uranium_fuel_rod"
+	},
+	"elements": [
+		{
+			"from": [5, 0, 5],
+			"to": [11, 6, 11],
+			"rotation": {"angle": 0, "axis": "y", "origin": [1, 0, 1]},
+			"faces": {
+				"north": {"uv": [4, 6, 10, 12], "texture": "#wall", "tintindex": 0},
+				"east": {"uv": [4, 6, 10, 12], "texture": "#wall", "tintindex": 0},
+				"south": {"uv": [4, 6, 10, 12], "texture": "#wall", "tintindex": 0},
+				"west": {"uv": [4, 6, 10, 12], "texture": "#wall", "tintindex": 0},
+				"up": {"uv": [4, 4, 12, 12], "texture": "#wall", "cullface": "up", "tintindex": 0},
+				"down": {"uv": [4, 4, 12, 12], "texture": "#wall", "cullface": "down", "tintindex": 0}
+			}
+		},
+		{
+			"from": [4, 0, 4],
+			"to": [4, 16, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [4, 0, 4]},
+			"faces": {
+				"north": {"uv": [2, 0, 2, 16], "texture": "#missing"},
+				"east": {"uv": [0, 0, 8, 16], "texture": "#3"},
+				"south": {"uv": [0, 0, 0, 16], "texture": "#missing"},
+				"west": {"uv": [0, 0, 8, 16], "texture": "#3"},
+				"up": {"uv": [0, 0, 0, 8], "texture": "#missing"},
+				"down": {"uv": [0, 0, 0, 8], "texture": "#missing"}
+			}
+		},
+		{
+			"from": [4, 0, 4],
+			"to": [12, 16, 4],
+			"rotation": {"angle": 0, "axis": "y", "origin": [4, 0, 4]},
+			"faces": {
+				"north": {"uv": [0, 0, 8, 16], "texture": "#3"},
+				"east": {"uv": [9, 0, 9, 16], "texture": "#missing"},
+				"south": {"uv": [0, 0, 8, 16], "texture": "#3"},
+				"west": {"uv": [0, 0, 0, 16], "texture": "#missing"},
+				"up": {"uv": [0, 0, 8, 0], "texture": "#missing"},
+				"down": {"uv": [0, 9, 8, 9], "texture": "#missing"}
+			}
+		},
+		{
+			"from": [4, 0, 12],
+			"to": [12, 16, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [4, 0, 12]},
+			"faces": {
+				"north": {"uv": [0, 0, 8, 16], "texture": "#3"},
+				"east": {"uv": [9, 0, 9, 16], "texture": "#missing"},
+				"south": {"uv": [0, 0, 8, 16], "texture": "#3"},
+				"west": {"uv": [0, 0, 0, 16], "texture": "#missing"},
+				"up": {"uv": [0, 0, 8, 0], "texture": "#missing"},
+				"down": {"uv": [0, 9, 8, 9], "texture": "#missing"}
+			}
+		},
+		{
+			"from": [12, 0, 4],
+			"to": [12, 16, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [12, 0, 4]},
+			"faces": {
+				"north": {"uv": [2, 0, 2, 16], "texture": "#missing"},
+				"east": {"uv": [0, 0, 8, 16], "texture": "#3"},
+				"south": {"uv": [0, 0, 0, 16], "texture": "#missing"},
+				"west": {"uv": [0, 0, 8, 16], "texture": "#3"},
+				"up": {"uv": [0, 0, 0, 8], "texture": "#missing"},
+				"down": {"uv": [0, 0, 0, 8], "texture": "#missing"}
+			}
+		}
+	],
+	"gui_light": "front",
+	"display": {
+		"gui": {
+			"rotation": [30, 45, 0],
+			"scale": [0.625, 0.625, 0.625]
+		}
+	}
+}

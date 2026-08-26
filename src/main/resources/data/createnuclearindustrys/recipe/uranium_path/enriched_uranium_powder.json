@@ -1,0 +1,19 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "type": "neoforge:single",
+      "amount": 100,
+      "fluid": "createnuclearindustrys:gaseous_uranium"
+    }
+  ],
+  "results": [
+    {
+      "id": "createnuclearindustrys:enriched_uranium_powder"
+    },
+    {
+      "chance": 0.2,
+      "id": "createnuclearindustrys:yellow_cake"
+    }
+  ]
+}

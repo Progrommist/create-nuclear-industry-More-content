@@ -118,7 +118,9 @@ configurations {
 }
 
 dependencies {
+
     // Mods loaded in dev environment only (not shipped as dependencies)
+    //implementation fileTree(dir: 'libs', include: ['*.jar'])
     localRuntime fileTree(dir: 'libs', include: ['*.jar'])
     compileOnly fileTree(dir: 'libs', include: ['*.jar'])
 

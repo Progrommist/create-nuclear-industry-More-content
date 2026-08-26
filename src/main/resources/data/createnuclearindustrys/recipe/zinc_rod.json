@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ZGZ",
+    "ZGZ",
+    "ZGZ"
+  ],
+  "key": {
+    "Z": {"item": "create:zinc_ingot"},
+    "G": {"item": "minecraft:glass_pane"}
+  },
+  "result": {
+    "id": "createnuclearindustrys:zinc_rod",
+    "count": 1
+  }
+}

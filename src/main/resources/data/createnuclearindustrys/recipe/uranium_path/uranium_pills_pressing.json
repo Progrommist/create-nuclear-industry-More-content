@@ -1,0 +1,13 @@
+{
+  "type": "create:pressing",
+  "ingredients": [
+    {
+      "item": "createnuclearindustrys:enriched_uranium_powder"
+    }
+  ],
+  "results": [
+    {
+      "id": "createnuclearindustrys:uranium_pills"
+    }
+  ]
+}

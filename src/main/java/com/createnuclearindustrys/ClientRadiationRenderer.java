@@ -1,5 +1,9 @@
 package com.createnuclearindustrys;
 
+import com.createnuclearindustrys.Blocks.BoronControlRod.BoronControlRod;
+import com.createnuclearindustrys.Blocks.HeatPipeBlock.HeatPipeBlock;
+import com.createnuclearindustrys.Manament.RadiationBirthPacket;
+import com.createnuclearindustrys.Blocks.UraniumFuelRod.UraniumFuelRod;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Camera;
@@ -41,7 +45,7 @@ public class ClientRadiationRenderer {
             int g = (int)(255 - t * 100); // 255 → 155
             int b = (int)(255 * (1f - t)); // 255 → 0
             return (0xFF << 24) | (r << 16) | (g << 8) | b;
-        }, CreateNuclearIndustrys.URANIUM_FUEL_ROD.get());
+        }, CNIBlocks.URANIUM_FUEL_ROD.get());
     }
 
     // ── Packet registration (mod bus, auto-detected via IModBusEvent) ──────────
