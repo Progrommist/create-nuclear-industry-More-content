@@ -23,6 +23,8 @@
   "item.createnuclearindustrys.potassium_iodide": "Potassium iodide",
   "item.createnuclearindustrys.gaseous_uranium_bucket": "Gaseous uranium bucket",
 
+  "enchantment.createnuclearindustrys.radiation_attack": "Radiation attack",
+
   "block.createnuclearindustrys.uranium_fuel_rod.tooltip.summary": "The _fuel core_ of a nuclear fission reactor.",
   "block.createnuclearindustrys.uranium_fuel_rod.tooltip.condition1": "When Receiving Radiation",
   "block.createnuclearindustrys.uranium_fuel_rod.tooltip.behaviour1": "Absorbs radiation from neighbouring rods, generating _heat_ that spreads through connected _Heat Pipes_.",

@@ -1,5 +1,5 @@
 {
-  "itemGroup.createnuclearindustrys": "Create Nuclear Industrys: more content",
+  "itemGroup.createnuclearindustrys": "Create Nuclear Industrys",
 
   "block.createnuclearindustrys.uranium_ore_block": "Урановая руда",
   "block.createnuclearindustrys.uranium_fuel_rod": "Урановый топливный стержень",
@@ -22,6 +22,8 @@
   "item.createnuclearindustrys.yellow_cake": "Жёлтый кек",
   "item.createnuclearindustrys.potassium_iodide": "Йодид калия",
   "item.createnuclearindustrys.gaseous_uranium_bucket": "Ведро газообразного урана",
+
+  "enchantment.createnuclearindustrys.radiation_attack": "Радиационная атака",
 
   "block.createnuclearindustrys.uranium_fuel_rod.tooltip.summary": "_Топливная активная зона_ ядерного реактора деления.",
   "block.createnuclearindustrys.uranium_fuel_rod.tooltip.condition1": "При облучении",

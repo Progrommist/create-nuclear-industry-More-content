@@ -1,24 +1,12 @@
 package com.createnuclearindustrys.Blocks.UraniumFuelRod;
 
 import com.createnuclearindustrys.CNIBlocks;
-import com.createnuclearindustrys.Config;
-import com.createnuclearindustrys.Manament.RadiationManager;
-import com.simibubi.create.api.equipment.goggles.IHaveGoggleInformation;
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.BlockHitResult;
 
-import java.util.List;
 
 public class UraniumFuelRodEntity extends BlockEntity{
     private int durability = 100000;

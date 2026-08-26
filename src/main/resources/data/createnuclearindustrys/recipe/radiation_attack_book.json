@@ -2,8 +2,28 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "createnuclearindustrys:enriched_uranium_powder",
-      "count": 8
+      "item": "createnuclearindustrys:enriched_uranium_powder"
+    },
+    {
+      "item": "createnuclearindustrys:enriched_uranium_powder"
+    },
+    {
+      "item": "createnuclearindustrys:enriched_uranium_powder"
+    },
+    {
+      "item": "createnuclearindustrys:enriched_uranium_powder"
+    },
+    {
+      "item": "createnuclearindustrys:enriched_uranium_powder"
+    },
+    {
+      "item": "createnuclearindustrys:enriched_uranium_powder"
+    },
+    {
+      "item": "createnuclearindustrys:enriched_uranium_powder"
+    },
+    {
+      "item": "createnuclearindustrys:enriched_uranium_powder"
     },
     {
       "item": "minecraft:book"
