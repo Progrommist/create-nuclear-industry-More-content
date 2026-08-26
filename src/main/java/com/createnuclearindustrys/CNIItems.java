@@ -61,7 +61,7 @@ public class CNIItems {
                     new Item.Properties().food(new FoodProperties.Builder()
                             .nutrition(2)
                             .saturationModifier(1f)
-                            .effect(() -> new MobEffectInstance(CNIEffects.RADIATION_SICKNESS, 300, 1), 0.5f)
+                            .effect(() -> new MobEffectInstance(CNIEffects.RADIATION_SICKNESS, 200, 2), 0.5f)
                             .alwaysEdible()
                             .build()
                     )

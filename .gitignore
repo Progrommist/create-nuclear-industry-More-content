@@ -41,3 +41,4 @@ repo/
 
 # Local dev-only mod JARs
 libs/
+/src/ideas/

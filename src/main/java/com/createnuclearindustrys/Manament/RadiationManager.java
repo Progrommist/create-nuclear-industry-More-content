@@ -361,7 +361,8 @@ public class RadiationManager extends SavedData {
         var holder = CNIEffects.RADIATION_SICKNESS;
         MobEffectInstance existing = entity.getEffect(holder);
         int newDuration = (existing != null ? existing.getDuration() : 0) + 20;
-        entity.addEffect(new MobEffectInstance(holder, newDuration, 0, false, true, true));
+        int newAmplifier = existing != null ? existing.getAmplifier() + Math.max(Math.round(entity.level().getRandom().nextFloat() - 0.49f), 0) : 1; // 1 % chance to get more amplifier
+        entity.addEffect(new MobEffectInstance(holder, newDuration, newAmplifier, false, true, true));
     }
 
     static float getAbsorption(BlockState state) {

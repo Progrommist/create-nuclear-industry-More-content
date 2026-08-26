@@ -1,9 +1,13 @@
 package com.createnuclearindustrys;
 
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.EnchantedBookItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentInstance;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -11,7 +15,6 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public class CNICreativeTab {
     private static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, CreateNuclearIndustrys.MODID);
-
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> EXAMPLE_TAB =
             CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup.createnuclearindustrys"))

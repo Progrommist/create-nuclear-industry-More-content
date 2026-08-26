@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "createnuclearindustrys:enriched_uranium_powder",
+      "count": 8
+    },
+    {
+      "item": "minecraft:book"
+    }
+  ],
+  "result": {
+    "id": "minecraft:enchanted_book",
+    "count": 1,
+    "components": {
+      "minecraft:stored_enchantments": {
+        "levels": {
+          "createnuclearindustrys:radiation_attack": 1
+        }
+      }
+    }
+  }
+}

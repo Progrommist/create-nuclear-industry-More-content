@@ -45,16 +45,18 @@ public class RadiationSicknessEffect extends MobEffect {
     /** Called every 40 ticks (2 s) while the effect is active. */
     @Override
     public boolean applyEffectTick(LivingEntity entity, int amplifier) {
-        if (entity.hasEffect(CNIEffects.RADIATION_PROTECTION)) return true;
+        if (entity.hasEffect(CNIEffects.RADIATION_PROTECTION)) {
+            entity.removeEffect(MobEffects.CONFUSION);
+            entity.removeEffect(MobEffects.DIG_SLOWDOWN);
+            return true;
+        }
 
         // Screen wobble — the signature symptom of acute radiation sickness
-        entity.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 160, 0, false, false));
+        entity.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 160, amplifier - 1, false, false));
         // Too sick to mine or swing a tool properly
-        entity.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 80, 1, false, false));
+        entity.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 80, amplifier, false, false));
         // Radiation burns / cellular damage — occasional direct harm
-        if (entity.level().getRandom().nextFloat() < 0.25f) {
-            entity.hurt(entity.damageSources().magic(), 1.0f);
-        }
+        entity.hurt(entity.damageSources().magic(), amplifier);
         return true;
     }
 

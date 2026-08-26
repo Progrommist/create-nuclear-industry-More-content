@@ -9,10 +9,11 @@
   ],
   "results": [
     {
+      "chance": 0.2,
       "id": "createnuclearindustrys:enriched_uranium_powder"
     },
     {
-      "chance": 0.2,
+      "chance": 0.5,
       "id": "createnuclearindustrys:yellow_cake"
     }
   ]
