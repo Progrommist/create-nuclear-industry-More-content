@@ -153,7 +153,7 @@ public class RadiationManager extends SavedData {
             // Gate: only drain heat when the generator is actually converting water to steam
             if (!(level.getBlockEntity(entry.getKey()) instanceof ThermalGeneratorBlockEntity tbe)
                     || !tbe.hasWater() || tbe.fullSteam()) continue;
-            entry.setValue(Math.max(0f, heat - heat * 0.01f));
+            entry.setValue(Math.max(0f, heat - heat * 0.005f));
         }
 
         // Vertical conduction between stacked uranium rods
@@ -180,7 +180,7 @@ public class RadiationManager extends SavedData {
                 if (!pipeProcessed.add(key)) continue;
                 float heatA = rodHeat.getOrDefault(pos, 0f);
                 float heatB = rodHeat.getOrDefault(neighbor, 0f);
-                float transfer = (heatA - heatB) * 0.25f;
+                float transfer = (heatA - heatB) * 0.5f;
                 if (Math.abs(transfer) < 0.01f) continue;
                 rodHeat.put(pos, heatA - transfer);
                 rodHeat.put(neighbor.immutable(), heatB + transfer);

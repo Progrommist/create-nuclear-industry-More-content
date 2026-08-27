@@ -83,7 +83,7 @@ public class CNIItems {
     public static final DeferredItem<BlockItem> URANIUM_FUEL_ROD_ITEM =
             ITEMS.register("uranium_fuel_rod",() -> new UraniumFuelRodItem(CNIBlocks.URANIUM_FUEL_ROD.get(),
                     new Item.Properties()
-                            .durability(100000)
+                            .durability(300000)
                             .stacksTo(1)
             )
     );

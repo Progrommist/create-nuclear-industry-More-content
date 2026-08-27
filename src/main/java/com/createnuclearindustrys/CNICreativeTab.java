@@ -30,8 +30,8 @@ public class CNICreativeTab {
                         output.accept(CNIItems.URANIUM_FLUID_BUCKET.get());
                         output.accept(CNIItems.ENRICHED_URANIUM_POWDER.get());
                         output.accept(CNIItems.URANIUM_PILLS.get());
-                        output.accept(CNIItems.URANIUM_DOUGH.get());
                         output.accept(CNIItems.URANIUM_FUEL_ROD_ITEM.get());
+                        output.accept(CNIItems.URANIUM_DOUGH.get());
                         output.accept(CNIItems.URANIUM_BREAD.get());
                         output.accept(CNIItems.MUTATED_BREAD.get());
 
