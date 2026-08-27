@@ -1,0 +1,33 @@
+{
+  "parent": "createnuclearindustrys:uranium_bread_consume",
+  "display": {
+    "icon": {
+      "id": "createnuclearindustrys:mutated_bread"
+    },
+    "title": {
+      "translate": "advancement.createnuclearindustrys.expiration_date.title"
+    },
+    "description": {
+      "translate": "advancement.createnuclearindustrys.expiration_date.description"
+    },
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "A": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "createnuclearindustrys:mutated_bread"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    ["A"]
+  ]
+}

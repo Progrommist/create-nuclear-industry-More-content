@@ -59,6 +59,11 @@
   "item.createnuclearindustrys.mutated_bread.tooltip.condition4": "- How much?",
   "item.createnuclearindustrys.mutated_bread.tooltip.behaviour4": "- I have done nothing but teleport bread for three days.",
 
+  "item.createnuclearindustrys.uranium_bread.tooltip.summary": "This is uranium bread",
+  "item.createnuclearindustrys.uranium_bread.tooltip.condition1": "But when teleporting to another dimension,",
+  "item.createnuclearindustrys.uranium_bread.tooltip.behaviour1": "He will turn into mutated bread.",
+
+
   "createnuclearindustrys.display_source.heat_gauge_temperature": "Heat Gauge Temperature",
   "createnuclearindustrys.display_source.thermal_generator_water": "Water amount",
   "createnuclearindustrys.display_source.thermal_generator_steam": "Steam amount",
@@ -75,5 +80,26 @@
   "createnuclearindustrys.configuration.items": "Item List",
   "createnuclearindustrys.configuration.logDirtBlock": "Log Dirt Block",
   "createnuclearindustrys.configuration.magicNumberIntroduction": "Magic Number Text",
-  "createnuclearindustrys.configuration.magicNumber": "Magic Number"
+  "createnuclearindustrys.configuration.magicNumber": "Magic Number",
+
+  "advancement.createnuclearindustrys.radioactive_trace.title": "First nuclear steps",
+  "advancement.createnuclearindustrys.radioactive_trace.description": "Get the uranium ore",
+  "advancement.createnuclearindustrys.expiration_date.title": "Expiration date",
+  "advancement.createnuclearindustrys.expiration_date.description": "Get the mutated bread",
+  "advancement.createnuclearindustrys.tikhvin_bakery.title": "Tikhvin bakery",
+  "advancement.createnuclearindustrys.tikhvin_bakery.description": "Collect 64 mutated bread",
+  "advancement.createnuclearindustrys.radiation_sick.title": "Not cancer, but so!",
+  "advancement.createnuclearindustrys.radiation_sick.description": "Get radiation sickness",
+  "advancement.createnuclearindustrys.critical_assembly.title": "Critical assembly",
+  "advancement.createnuclearindustrys.critical_assembly.description": "Place the uranium fuel rod",
+  "advancement.createnuclearindustrys.uranium_bread_consume.title": "Metal on the tip of the tongue",
+  "advancement.createnuclearindustrys.uranium_bread_consume.description": "Eat the uranium bread",
+  "advancement.createnuclearindustrys.nuclear_meltdown.title": "The RBMK didn't explode",
+  "advancement.createnuclearindustrys.nuclear_meltdown.description": "Blow up the nuclear reactor",
+  "advancement.createnuclearindustrys.the_golden_mean.title": "The golden mean",
+  "advancement.createnuclearindustrys.the_golden_mean.description": "Reach a temperature of 300 - 400 °C",
+  "advancement.createnuclearindustrys.continue_examination.title": "Continue examination!",
+  "advancement.createnuclearindustrys.continue_examination.description": "Reach a temperature of 500 - 999 °C",
+  "advancement.createnuclearindustrys.peaceful_atom.title": "Peaceful atom",
+  "advancement.createnuclearindustrys.peaceful_atom.description": "Generate energy with a thermal generator"
 }

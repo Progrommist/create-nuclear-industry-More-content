@@ -28,6 +28,7 @@ public class CreateNuclearIndustrys {
         CNIItems.register(modEventBus);
         CNICreativeTab.register(modEventBus);
         CNILootFunctions.LOOT_FUNCTIONS.register(modEventBus);
+        CNITriggers.TRIGGERS.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
         NeoForge.EVENT_BUS.register(this);

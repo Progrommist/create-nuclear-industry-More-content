@@ -1,0 +1,32 @@
+{
+  "parent": "createnuclearindustrys:radioactive_trace",
+  "display": {
+    "icon": {
+      "id": "createnuclearindustrys:uranium_fuel_rod"
+    },
+    "title": {
+      "translate": "advancement.createnuclearindustrys.critical_assembly.title"
+    },
+    "description": {
+      "translate": "advancement.createnuclearindustrys.critical_assembly.description"
+    },
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "A": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "block_state_property",
+            "block": "createnuclearindustrys:uranium_fuel_rod"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    ["A"]
+  ]
+}

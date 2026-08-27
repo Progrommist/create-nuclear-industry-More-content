@@ -1,0 +1,28 @@
+{
+  "parent": "createnuclearindustrys:radioactive_trace",
+  "display": {
+    "icon": {
+      "id": "minecraft:golden_apple"
+    },
+    "title": {
+      "translate": "advancement.createnuclearindustrys.the_golden_mean.title"
+    },
+    "description": {
+      "translate": "advancement.createnuclearindustrys.the_golden_mean.description"
+    },
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "A": {
+      "trigger": "createnuclearindustrys:nuclear_temperature_trigger",
+      "conditions": {
+        "min": 300,
+        "max": 400
+      }
+    }
+  },
+  "requirements": [
+    ["A"]
+  ]
+}

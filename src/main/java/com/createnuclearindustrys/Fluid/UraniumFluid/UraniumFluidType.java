@@ -1,4 +1,4 @@
-package com.createnuclearindustrys.SteamFluid;
+package com.createnuclearindustrys.Fluid.UraniumFluid;
 
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
@@ -6,9 +6,8 @@ import net.neoforged.neoforge.fluids.FluidType;
 
 import java.util.function.Consumer;
 
-public class SteamFluidType extends FluidType {
-
-    public SteamFluidType(Properties properties) {
+public class UraniumFluidType extends FluidType {
+    public UraniumFluidType(Properties properties) {
         super(properties);
     }
 
@@ -19,16 +18,28 @@ public class SteamFluidType extends FluidType {
             private static final ResourceLocation STILL =
                     ResourceLocation.withDefaultNamespace("block/water_still");
             private static final ResourceLocation FLOW =
-                    ResourceLocation.withDefaultNamespace("block/water_flow");
+                    ResourceLocation.withDefaultNamespace("block/water_still");
             private static final ResourceLocation OVERLAY =
                     ResourceLocation.withDefaultNamespace("misc/underwater");
 
-            @Override public ResourceLocation getStillTexture()   { return STILL;   }
-            @Override public ResourceLocation getFlowingTexture() { return FLOW;    }
-            @Override public ResourceLocation getOverlayTexture() { return OVERLAY; }
+            @Override
+            public ResourceLocation getStillTexture() {
+                return STILL;
+            }
 
-            /** Very light cyan, mostly translucent — looks like swirling steam. */
-            @Override public int getTintColor() { return 0xAAE8F8FF; }
+            @Override
+            public ResourceLocation getFlowingTexture() {
+                return FLOW;
+            }
+
+            @Override
+            public ResourceLocation getOverlayTexture() {
+                return OVERLAY;
+            }
+            @Override
+            public int getTintColor() {
+                return 0xFF60FF0A;
+            }
         });
     }
 }

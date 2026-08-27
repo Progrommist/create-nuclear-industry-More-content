@@ -59,6 +59,10 @@
   "item.createnuclearindustrys.mutated_bread.tooltip.condition4": "- Сколько хлеба?",
   "item.createnuclearindustrys.mutated_bread.tooltip.behaviour4": "- Три дня подряд я только этим и занимался.",
 
+  "item.createnuclearindustrys.uranium_bread.tooltip.summary": "Это урановый хлеб",
+  "item.createnuclearindustrys.uranium_bread.tooltip.condition1": "Но при телепортации в другое измерение",
+  "item.createnuclearindustrys.uranium_bread.tooltip.behaviour1": "Он превратиться в мутировавший хлеб",
+
   "createnuclearindustrys.display_source.heat_gauge_temperature": "Температура теплового датчика",
   "createnuclearindustrys.display_source.thermal_generator_water": "Количество воды",
   "createnuclearindustrys.display_source.thermal_generator_steam": "Количество пара",
@@ -75,5 +79,26 @@
   "createnuclearindustrys.configuration.items": "Список предметов",
   "createnuclearindustrys.configuration.logDirtBlock": "Блок грязи в журнале",
   "createnuclearindustrys.configuration.magicNumberIntroduction": "Текст магического числа",
-  "createnuclearindustrys.configuration.magicNumber": "Магическое число"
+  "createnuclearindustrys.configuration.magicNumber": "Магическое число",
+
+  "advancement.createnuclearindustrys.radioactive_trace.title": "Первые ядерные шаги",
+  "advancement.createnuclearindustrys.radioactive_trace.description": "Получите урановую руду",
+  "advancement.createnuclearindustrys.expiration_date.title": "Срок годности",
+  "advancement.createnuclearindustrys.expiration_date.description": "Получите мутировавший хлеб",
+  "advancement.createnuclearindustrys.tikhvin_bakery.title": "Тихвинский хлебокомбинат",
+  "advancement.createnuclearindustrys.tikhvin_bakery.description": "Соберите 64 мутировавшего хлеба",
+  "advancement.createnuclearindustrys.radiation_sick.title": "Не рак, а так!",
+  "advancement.createnuclearindustrys.radiation_sick.description": "Получите лучевую болезнь",
+  "advancement.createnuclearindustrys.critical_assembly.title": "Критическая сборка",
+  "advancement.createnuclearindustrys.critical_assembly.description": "Поставьте урановый топливный стержень",
+  "advancement.createnuclearindustrys.uranium_bread_consume.title": "Металл на кончике языка",
+  "advancement.createnuclearindustrys.uranium_bread_consume.description": "Съешьте урановый хлеб",
+  "advancement.createnuclearindustrys.nuclear_meltdown.title": "РБМК не взрывается",
+  "advancement.createnuclearindustrys.nuclear_meltdown.description": "Взорвите ядерный реактор",
+  "advancement.createnuclearindustrys.the_golden_mean.title": "Золотая середина",
+  "advancement.createnuclearindustrys.the_golden_mean.description": "Достигните температуры 300 - 400 °C",
+  "advancement.createnuclearindustrys.continue_examination.title": "Продолжайте испытания!",
+  "advancement.createnuclearindustrys.continue_examination.description": "Допустите температуру 500 - 999 °C",
+  "advancement.createnuclearindustrys.peaceful_atom.title": "Мирный атом",
+  "advancement.createnuclearindustrys.peaceful_atom.description": "Выработайте энергию с помощью термогенератора"
 }

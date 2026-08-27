@@ -2,6 +2,7 @@ package com.createnuclearindustrys.Blocks.ThermalGeneratorBlock;
 
 import com.createnuclearindustrys.CNIBlocks;
 import com.createnuclearindustrys.CNIFluids;
+import com.createnuclearindustrys.CNITriggers;
 import com.simibubi.create.content.kinetics.base.GeneratingKineticBlockEntity;
 import com.simibubi.create.content.kinetics.motor.CreativeMotorBlock;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
@@ -9,12 +10,17 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 public class ThermalGeneratorBlockEntity extends GeneratingKineticBlockEntity {
@@ -169,6 +175,10 @@ public class ThermalGeneratorBlockEntity extends GeneratingKineticBlockEntity {
             hadWaterLastTick = hasWaterNow;
             updateGeneratedRotation();
             if (hasNetwork()) notifyStressCapacityChange(calculateAddedStressCapacity());
+            Level level = this.getLevel();
+            if (level instanceof ServerLevel serverLevel) {
+                CNITriggers.THERMAL_GENERATOR_TRIGGER.get().trigger(findClosestPlayer(this.getBlockPos().getCenter(), serverLevel));
+            }
         }
     }
 
@@ -204,5 +214,20 @@ public class ThermalGeneratorBlockEntity extends GeneratingKineticBlockEntity {
         heat = tag.getFloat("heat");
         if (tag.contains("waterTank")) waterTank.readFromNBT(registries, tag.getCompound("waterTank"));
         if (tag.contains("steamTank"))  steamTank.readFromNBT(registries,  tag.getCompound("steamTank"));
+    }
+    @Nullable
+    public ServerPlayer findClosestPlayer(Vec3 position, ServerLevel server) {
+        List<ServerPlayer> players = server.players();
+        ServerPlayer closest = null;
+        double closestDistanceSq = Double.MAX_VALUE;
+
+        for (ServerPlayer player : players) {
+            double distanceSq = player.position().distanceToSqr(position);
+            if (distanceSq < closestDistanceSq) {
+                closestDistanceSq = distanceSq;
+                closest = player;
+            }
+        }
+        return closest;
     }
 }

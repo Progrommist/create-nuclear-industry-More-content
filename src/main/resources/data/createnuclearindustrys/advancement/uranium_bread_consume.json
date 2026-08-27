@@ -1,0 +1,29 @@
+{
+  "parent": "createnuclearindustrys:radioactive_trace",
+  "display": {
+    "icon": {
+      "id": "createnuclearindustrys:uranium_bread"
+    },
+    "title": {
+      "translate": "advancement.createnuclearindustrys.uranium_bread_consume.title"
+    },
+    "description": {
+      "translate": "advancement.createnuclearindustrys.uranium_bread_consume.description"
+    },
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "A": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": ["createnuclearindustrys:uranium_bread"]
+        }
+      }
+    }
+  },
+  "requirements": [
+    ["A"]
+  ]
+}

@@ -1,9 +1,9 @@
 package com.createnuclearindustrys;
 
-import com.createnuclearindustrys.SteamFluid.SteamFluid;
-import com.createnuclearindustrys.SteamFluid.SteamFluidType;
-import com.createnuclearindustrys.UraniumFluid.UraniumFluid;
-import com.createnuclearindustrys.UraniumFluid.UraniumFluidType;
+import com.createnuclearindustrys.Fluid.SteamFluid.SteamFluid;
+import com.createnuclearindustrys.Fluid.SteamFluid.SteamFluidType;
+import com.createnuclearindustrys.Fluid.UraniumFluid.UraniumFluid;
+import com.createnuclearindustrys.Fluid.UraniumFluid.UraniumFluidType;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.material.Fluid;

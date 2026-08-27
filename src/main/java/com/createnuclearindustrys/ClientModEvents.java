@@ -1,6 +1,6 @@
 package com.createnuclearindustrys;
 
-import com.createnuclearindustrys.SteamFluid.SteamParticle;
+import com.createnuclearindustrys.Fluid.SteamFluid.SteamParticle;
 import com.createnuclearindustrys.Blocks.ThermalGeneratorBlock.ThermalGeneratorRenderer;
 import com.simibubi.create.foundation.item.ItemDescription;
 import com.simibubi.create.foundation.item.TooltipModifier;
@@ -22,6 +22,7 @@ public class ClientModEvents {
             registerTooltip(CNIItems.BORON_CONTROL_ROD_ITEM.get());
             registerTooltip(CNIItems.URANIUM_FUEL_ROD_ITEM.get());
             registerTooltip(CNIItems.MUTATED_BREAD.get());
+            registerTooltip(CNIItems.URANIUM_BREAD.get());
             registerTooltip(CNIItems.HEAT_GAUGE_ITEM.get());
             registerTooltip(CNIItems.HEAT_PIPE_ITEM.get());
             registerTooltip(CNIItems.THERMAL_GENERATOR_ITEM.get());

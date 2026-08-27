@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "id": "createnuclearindustrys:uranium_ore"
+    },
+    "title": {
+      "translate": "advancement.createnuclearindustrys.radioactive_trace.title"
+    },
+    "description": {
+      "translate": "advancement.createnuclearindustrys.radioactive_trace.description"
+    },
+    "background": "createnuclearindustrys:textures/advancement_background.png",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "A": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "createnuclearindustrys:uranium_ore"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    ["A"]
+  ]
+}

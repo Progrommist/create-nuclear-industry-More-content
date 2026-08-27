@@ -2,7 +2,6 @@ package com.createnuclearindustrys;
 
 import com.createnuclearindustrys.Blocks.UraniumFuelRod.UraniumFuelRodItem;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.BucketItem;

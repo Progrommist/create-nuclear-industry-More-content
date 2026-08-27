@@ -1,4 +1,4 @@
-package com.createnuclearindustrys.UraniumFluid;
+package com.createnuclearindustrys.Fluid.SteamFluid;
 
 import com.createnuclearindustrys.CNIFluids;
 import net.minecraft.core.BlockPos;
@@ -10,13 +10,20 @@ import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FlowingFluid;
 
-public class UraniumFluidBlock extends LiquidBlock {
+/**
+ * Steam fluid block — instantly dissipates into rising steam particles
+ * one tick after being placed in the world.
+ */
+public class SteamFluidBlock extends LiquidBlock {
 
     private static final int PARTICLES_PER_BLOCK = 40;
-    public UraniumFluidBlock(FlowingFluid fluid, Properties properties) {
+
+    public SteamFluidBlock(FlowingFluid fluid, Properties properties) {
         super(fluid, properties);
     }
 
+    /** Schedule the dissipation tick the moment steam is placed. */
+    @Override
     public void onPlace(BlockState state, Level level, BlockPos pos,
                         BlockState oldState, boolean isMoving) {
         super.onPlace(state, level, pos, oldState, isMoving);

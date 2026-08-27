@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "createnuclearindustrys:enriched_uranium_powder"
+    },
+    {
+      "tag": "c:dyes"
+    }
+  ],
+  "result": {
+    "id": "minecraft:glow_ink_sac"
+  }
+}

@@ -13,7 +13,7 @@ public class ThermalGeneratorWaterDisplaySource extends SingleLineDisplaySource 
         BlockEntity be = context.getSourceBlockEntity();
         if (!(be instanceof ThermalGeneratorBlockEntity tgbe))
             return Component.literal("---");
-        return Component.literal(String.format("%d / %d", tgbe.waterAmount(), tgbe.waterCapacity()));
+        return Component.literal(String.format("%d/%d", tgbe.waterAmount(), tgbe.waterCapacity()));
     }
 
     /** Allow the user to add a custom label prefix via the Display Link GUI. */

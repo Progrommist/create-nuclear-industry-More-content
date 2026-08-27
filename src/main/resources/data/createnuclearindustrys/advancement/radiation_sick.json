@@ -1,0 +1,29 @@
+{
+  "parent": "createnuclearindustrys:radioactive_trace",
+  "display": {
+    "icon": {
+      "id": "createnuclearindustrys:uranium_pills"
+    },
+    "title": {
+      "translate": "advancement.createnuclearindustrys.radiation_sick.title"
+    },
+    "description": {
+      "translate": "advancement.createnuclearindustrys.radiation_sick.description"
+    },
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "A": {
+      "trigger": "minecraft:effects_changed",
+      "conditions": {
+        "effects": {
+          "createnuclearindustrys:radiation_sick": {}
+        }
+      }
+    }
+  },
+  "requirements": [
+    ["A"]
+  ]
+}

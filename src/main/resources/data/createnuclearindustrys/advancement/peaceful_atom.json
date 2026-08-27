@@ -1,0 +1,24 @@
+{
+  "parent": "createnuclearindustrys:critical_assembly",
+  "display": {
+    "icon": {
+      "id": "createnuclearindustrys:thermal_generator"
+    },
+    "title": {
+      "translate": "advancement.createnuclearindustrys.peaceful_atom.title"
+    },
+    "description": {
+      "translate": "advancement.createnuclearindustrys.peaceful_atom.description"
+    },
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "A": {
+      "trigger": "createnuclearindustrys:thermal_generator_trigger"
+    }
+  },
+  "requirements": [
+    ["A"]
+  ]
+}

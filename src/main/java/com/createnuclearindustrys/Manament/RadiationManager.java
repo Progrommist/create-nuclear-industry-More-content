@@ -16,6 +16,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
@@ -31,6 +32,7 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import javax.annotation.Nullable;
 import java.util.*;
 
 public class RadiationManager extends SavedData {
@@ -43,6 +45,9 @@ public class RadiationManager extends SavedData {
     private final Map<BlockPos, Float> rodHeat = new HashMap<>();
     private final RandomSource rng = RandomSource.create();
     private final List<RadiationParticle> pendingBroadcast = new ArrayList<>();
+
+    private static final int updateTime = 80;
+    private int ticksToUpdate = 0;
 
     public static RadiationManager get(ServerLevel level) {
         return level.getDataStorage().computeIfAbsent(
@@ -220,7 +225,16 @@ public class RadiationManager extends SavedData {
             step(p, level);
         }
         if (!dead.isEmpty()) { dead.forEach(particles::remove); setDirty(); }
+
+        ticksToUpdate++;
+        if (ticksToUpdate >= updateTime) {
+            for (Map.Entry<BlockPos, Float> i : rodHeat.entrySet()) {
+                CNITriggers.TEMPERATURE_TRIGGER.get().trigger(findClosestPlayer(i.getKey().getCenter(), level), i.getValue());
+            }
+
+            ticksToUpdate = 0;
         }
+    }
 
     private void triggerMeltdown(BlockPos epicenter, ServerLevel level) {
         // Power scales with ALL registered rods nearby — big reactors should make bigger booms
@@ -269,11 +283,34 @@ public class RadiationManager extends SavedData {
             if (!rodPos.equals(epicenter) && rodPos.distSqr(epicenter) <= 25) // 5-block radius
                 addHeat(rodPos, MELTDOWN_TEMP * 1.2f);
         }
+
+        if (level.isClientSide()) return;
+        ServerPlayer closestPlayer = findClosestPlayer(epicenter.getCenter(), level);
+        CreateNuclearIndustrys.LOGGER.info("server");
+        if (closestPlayer != null) {
+            ServerPlayer serverPlayer = (ServerPlayer) closestPlayer;
+            CNITriggers.MELTDOWN_TRIGGER.get().trigger(serverPlayer);
+        }
     }
 
     private static boolean isHeatNode(Block b) {
         return b instanceof UraniumFuelRod || b instanceof HeatGaugeBlock
                 || b instanceof HeatPipeBlock || b instanceof ThermalGeneratorBlock;
+    }
+    @Nullable
+    public ServerPlayer findClosestPlayer(Vec3 position, ServerLevel server) {
+        List<ServerPlayer> players = server.players();
+        ServerPlayer closest = null;
+        double closestDistanceSq = Double.MAX_VALUE;
+
+        for (ServerPlayer player : players) {
+            double distanceSq = player.position().distanceToSqr(position);
+            if (distanceSq < closestDistanceSq) {
+                closestDistanceSq = distanceSq;
+                closest = player;
+            }
+        }
+        return closest;
     }
 
     public void emitFromOre(BlockPos pos) {

@@ -1,0 +1,24 @@
+{
+  "parent": "createnuclearindustrys:critical_assembly",
+  "display": {
+    "icon": {
+      "id": "minecraft:tnt"
+    },
+    "title": {
+      "translate": "advancement.createnuclearindustrys.nuclear_meltdown.title"
+    },
+    "description": {
+      "translate": "advancement.createnuclearindustrys.nuclear_meltdown.description"
+    },
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "A": {
+      "trigger": "createnuclearindustrys:meltdown_trigger"
+    }
+  },
+  "requirements": [
+    ["A"]
+  ]
+}

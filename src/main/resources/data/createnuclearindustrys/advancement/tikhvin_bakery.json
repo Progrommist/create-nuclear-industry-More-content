@@ -1,0 +1,38 @@
+{
+  "parent": "createnuclearindustrys:expiration_date",
+  "display": {
+    "icon": {
+      "id": "createnuclearindustrys:mutated_bread",
+      "components": {
+        "minecraft:enchantment_glint_override": true
+      }
+    },
+    "title": {
+      "translate": "advancement.createnuclearindustrys.tikhvin_bakery.title"
+    },
+    "description": {
+      "translate": "advancement.createnuclearindustrys.tikhvin_bakery.description"
+    },
+    "show_toast": true,
+    "announce_to_chat": true,
+    "frame": "challenge"
+  },
+  "criteria": {
+    "A": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "createnuclearindustrys:mutated_bread"
+            ],
+            "count": 64
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    ["A"]
+  ]
+}

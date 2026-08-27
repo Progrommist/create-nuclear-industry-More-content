@@ -1,4 +1,4 @@
-package com.createnuclearindustrys.SteamFluid;
+package com.createnuclearindustrys.Fluid.SteamFluid;
 
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
