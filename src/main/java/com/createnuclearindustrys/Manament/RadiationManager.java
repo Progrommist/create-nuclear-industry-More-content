@@ -9,6 +9,8 @@ import com.createnuclearindustrys.Blocks.ThermalGeneratorBlock.ThermalGeneratorB
 import com.createnuclearindustrys.Blocks.ThermalGeneratorBlock.ThermalGeneratorBlockEntity;
 import com.createnuclearindustrys.Blocks.UraniumFuelRod.UraniumFuelRod;
 import com.createnuclearindustrys.Blocks.UraniumFuelRod.UraniumFuelRodEntity;
+import com.createnuclearindustrys.Utills.TaskCreator;
+import com.createnuclearindustrys.Utills.TickCommand;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
@@ -46,14 +48,45 @@ public class RadiationManager extends SavedData {
     private final RandomSource rng = RandomSource.create();
     private final List<RadiationParticle> pendingBroadcast = new ArrayList<>();
 
+    private static final ScheduleTasksManager _scheduleTasksManager = new ScheduleTasksManager();
+
     private static final int updateTime = 80;
     private int ticksToUpdate = 0;
 
+    public RadiationManager() {
+        initScheduler();
+    }
+
+    public void initScheduler() {
+        ArrayList<TaskCreator> newTasks = new ArrayList<>();
+        newTasks.add(new TaskCreator(level -> smth(level, "smth"),
+                () -> Config.MAGIC_NUMBER.get(), () -> Config.MAGIC_BOOL.get()));
+        newTasks.add(new TaskCreator(level -> smth2(level, "smth"),
+                () -> Config.MAGIC_NUMBER.get(), () -> Config.MAGIC_BOOL.get()));
+        newTasks.add(new TaskCreator(level -> smth3(level, "smth"),
+                () -> Config.MAGIC_NUMBER.get(), () -> Config.MAGIC_BOOL.get()));
+
+        _scheduleTasksManager.init(newTasks);
+    }
+
     public static RadiationManager get(ServerLevel level) {
         return level.getDataStorage().computeIfAbsent(
-            new SavedData.Factory<>(RadiationManager::new, RadiationManager::load),
+            new Factory<>(RadiationManager::new, RadiationManager::load),
             DATA_ID
         );
+    }
+
+    public void smth(ServerLevel level, String ti) {
+        CreateNuclearIndustrys.LOGGER.info(ti);
+        rods.clear();
+    }
+    public void smth2(ServerLevel level, String ti) {
+        CreateNuclearIndustrys.LOGGER.info(ti + " 2");
+        rods.clear();
+    }
+    public void smth3(ServerLevel level, String ti) {
+        CreateNuclearIndustrys.LOGGER.info(ti + " 3");
+        rods.clear();
     }
 
     public void registerRod(BlockPos pos, ServerLevel level) {
@@ -103,7 +136,9 @@ public class RadiationManager extends SavedData {
     }
 
     public void tick(ServerLevel level) {
-        // Validate registered nodes still exist (handles pistons, explosions, /fill, etc.)
+        _scheduleTasksManager.tick(level);
+
+        // Validate registered nodes still xist (handles pistons, explosions, /fill, etc.)
         List<BlockPos> gone = new ArrayList<>();
         for (BlockPos pos : rods) {
             if (level.isLoaded(pos) && !isHeatNode(level.getBlockState(pos).getBlock()))
@@ -180,7 +215,7 @@ public class RadiationManager extends SavedData {
                 if (!pipeProcessed.add(key)) continue;
                 float heatA = rodHeat.getOrDefault(pos, 0f);
                 float heatB = rodHeat.getOrDefault(neighbor, 0f);
-                float transfer = (heatA - heatB) * 0.5f;
+                float transfer = (heatA - heatB) * 0.25f;
                 if (Math.abs(transfer) < 0.01f) continue;
                 rodHeat.put(pos, heatA - transfer);
                 rodHeat.put(neighbor.immutable(), heatB + transfer);

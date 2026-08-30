@@ -11,6 +11,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.event.config.ModConfigEvent;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.tick.LevelTickEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
@@ -19,12 +21,20 @@ import java.util.List;
 
 @EventBusSubscriber(modid = CreateNuclearIndustrys.MODID)
 public class RadiationEvents {
+    private boolean isConfigReloaded;
+
+    @SubscribeEvent
+    public static void onConfigReload(final ModConfigEvent.Reloading event) {
+
+    }
 
     @SubscribeEvent
     public static void onLevelTickPost(LevelTickEvent.Post event) {
         if (!(event.getLevel() instanceof ServerLevel serverLevel)) return;
         RadiationManager manager = RadiationManager.get(serverLevel);
         manager.tick(serverLevel);
+
+        //if (this.isConfigReloaded) manager.initScheduler();
 
         List<RadiationParticle> born = manager.drainPendingBroadcast();
         if (born.isEmpty()) return;
