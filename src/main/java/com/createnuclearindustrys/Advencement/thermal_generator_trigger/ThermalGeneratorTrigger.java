@@ -1,4 +1,4 @@
-package com.createnuclearindustrys.Advencement.thermal_generator_power;
+package com.createnuclearindustrys.Advencement.thermal_generator_trigger;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.advancements.critereon.SimpleCriterionTrigger;

@@ -2,7 +2,8 @@ package com.createnuclearindustrys;
 
 import com.createnuclearindustrys.Advencement.meltdown.MeltdownTrigger;
 import com.createnuclearindustrys.Advencement.temperature.TemperatureTrigger;
-import com.createnuclearindustrys.Advencement.thermal_generator_power.ThermalGeneratorTrigger;
+import com.createnuclearindustrys.Advencement.thermal_generator_energy.ThermalGeneratorEnergyTrigger;
+import com.createnuclearindustrys.Advencement.thermal_generator_trigger.ThermalGeneratorTrigger;
 import net.minecraft.advancements.CriterionTrigger;
 import net.minecraft.core.registries.Registries;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -18,4 +19,6 @@ public class CNITriggers {
             TRIGGERS.register("nuclear_temperature_trigger", TemperatureTrigger::new);
     public static final Supplier<ThermalGeneratorTrigger> THERMAL_GENERATOR_TRIGGER =
             TRIGGERS.register("thermal_generator_trigger", ThermalGeneratorTrigger::new);
+    public static final Supplier<ThermalGeneratorEnergyTrigger> THERMAL_GENERATOR_ENERGY_TRIGGER =
+            TRIGGERS.register("thermal_generator_energy_trigger", ThermalGeneratorEnergyTrigger::new);
 }

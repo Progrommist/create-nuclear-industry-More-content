@@ -1,4 +1,4 @@
-package com.createnuclearindustrys.Utills;
+package com.createnuclearindustrys.Utills.Tasks;
 
 import javax.annotation.Nullable;
 import java.util.function.Supplier;

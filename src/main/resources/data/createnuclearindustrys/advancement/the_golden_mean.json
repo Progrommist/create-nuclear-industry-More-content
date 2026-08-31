@@ -1,5 +1,5 @@
 {
-  "parent": "createnuclearindustrys:radioactive_trace",
+  "parent": "createnuclearindustrys:critical_assembly",
   "display": {
     "icon": {
       "id": "minecraft:golden_apple"

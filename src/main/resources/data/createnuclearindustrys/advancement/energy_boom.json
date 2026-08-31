@@ -1,0 +1,27 @@
+{
+  "parent": "createnuclearindustrys:peaceful_atom",
+  "display": {
+    "icon": {
+      "id": "create:cogwheel"
+    },
+    "title": {
+      "translate": "advancement.createnuclearindustrys.energy_boom.title"
+    },
+    "description": {
+      "translate": "advancement.createnuclearindustrys.energy_boom.description"
+    },
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "A": {
+      "trigger": "createnuclearindustrys:thermal_generator_energy_trigger",
+      "conditions": {
+        "energy": 100000
+      }
+    }
+  },
+  "requirements": [
+    ["A"]
+  ]
+}

@@ -1,4 +1,4 @@
-package com.createnuclearindustrys.Advencement.thermal_generator_power;
+package com.createnuclearindustrys.Advencement.thermal_generator_trigger;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

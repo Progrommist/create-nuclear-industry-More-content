@@ -1,4 +1,4 @@
-package com.createnuclearindustrys.Utills;
+package com.createnuclearindustrys.Utills.Tasks;
 
 public final class Task {
     public TickCommand method;

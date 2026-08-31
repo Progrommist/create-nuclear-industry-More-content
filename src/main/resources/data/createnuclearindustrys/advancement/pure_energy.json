@@ -1,0 +1,31 @@
+{
+  "parent": "createnuclearindustrys:energy_boom",
+  "display": {
+    "icon": {
+      "id": "create:creative_motor",
+      "components": {
+        "minecraft:enchantment_glint_override": true
+      }
+    },
+    "title": {
+      "translate": "advancement.createnuclearindustrys.pure_energy.title"
+    },
+    "description": {
+      "translate": "advancement.createnuclearindustrys.pure_energy.description"
+    },
+    "show_toast": true,
+    "announce_to_chat": true,
+    "frame": "challenge"
+  },
+  "criteria": {
+    "A": {
+      "trigger": "createnuclearindustrys:thermal_generator_energy_trigger",
+      "conditions": {
+        "energy": 1000000
+      }
+    }
+  },
+  "requirements": [
+    ["A"]
+  ]
+}

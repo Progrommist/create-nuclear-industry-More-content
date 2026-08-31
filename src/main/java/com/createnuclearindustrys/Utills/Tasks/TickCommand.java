@@ -1,4 +1,4 @@
-package com.createnuclearindustrys.Utills;
+package com.createnuclearindustrys.Utills.Tasks;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;

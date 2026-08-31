@@ -74,13 +74,9 @@
   "fluid_type.createnuclearindustrys.steam": "Steam",
   "item.createnuclearindustrys.steam_bucket": "Bucket of Steam",
 
-  "createnuclearindustrys.configuration.title": "Create Nuclear Industrys Configs",
-  "createnuclearindustrys.configuration.section.createnuclearindustrys.common.toml": "Create Nuclear Industrys Configs",
-  "createnuclearindustrys.configuration.section.createnuclearindustrys.common.toml.title": "Create Nuclear Industrys Configs",
-  "createnuclearindustrys.configuration.items": "Item List",
-  "createnuclearindustrys.configuration.logDirtBlock": "Log Dirt Block",
-  "createnuclearindustrys.configuration.magicNumberIntroduction": "Magic Number Text",
-  "createnuclearindustrys.configuration.magicNumber": "Magic Number",
+  "createnuclearindustrys.configuration.title": "Create Nuclear Industrys: more content Configs",
+  "createnuclearindustrys.configuration.section.createnuclearindustrys.common.toml": "Create Nuclear Industrys: more content Configs",
+  "createnuclearindustrys.configuration.section.createnuclearindustrys.common.toml.title": "Create Nuclear Industrys: more content Configs",
 
   "advancement.createnuclearindustrys.radioactive_trace.title": "First nuclear steps",
   "advancement.createnuclearindustrys.radioactive_trace.description": "Get the uranium ore",
@@ -101,5 +97,9 @@
   "advancement.createnuclearindustrys.continue_examination.title": "Continue examination!",
   "advancement.createnuclearindustrys.continue_examination.description": "Reach a temperature of 500 - 999 °C",
   "advancement.createnuclearindustrys.peaceful_atom.title": "Peaceful atom",
-  "advancement.createnuclearindustrys.peaceful_atom.description": "Generate energy with a thermal generator"
+  "advancement.createnuclearindustrys.peaceful_atom.description": "Generate energy with a thermal generator",
+  "advancement.createnuclearindustrys.energy_boom.title": "Energy boom",
+  "advancement.createnuclearindustrys.energy_boom.description": "Generate 100.000 SU with a thermal generator",
+  "advancement.createnuclearindustrys.pure_energy.title": "Pure energy",
+  "advancement.createnuclearindustrys.pure_energy.description": "Generate 1.000.000 SU with a thermal generator"
 }

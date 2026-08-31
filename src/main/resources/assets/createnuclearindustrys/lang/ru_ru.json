@@ -76,10 +76,6 @@
   "createnuclearindustrys.configuration.title": "Конфигурация Create Nuclear Industrys",
   "createnuclearindustrys.configuration.section.createnuclearindustrys.common.toml": "Конфигурация Create Nuclear Industrys",
   "createnuclearindustrys.configuration.section.createnuclearindustrys.common.toml.title": "Конфигурация Create Nuclear Industrys",
-  "createnuclearindustrys.configuration.items": "Список предметов",
-  "createnuclearindustrys.configuration.logDirtBlock": "Блок грязи в журнале",
-  "createnuclearindustrys.configuration.magicNumberIntroduction": "Текст магического числа",
-  "createnuclearindustrys.configuration.magicNumber": "Магическое число",
 
   "advancement.createnuclearindustrys.radioactive_trace.title": "Первые ядерные шаги",
   "advancement.createnuclearindustrys.radioactive_trace.description": "Получите урановую руду",
@@ -100,5 +96,9 @@
   "advancement.createnuclearindustrys.continue_examination.title": "Продолжайте испытания!",
   "advancement.createnuclearindustrys.continue_examination.description": "Допустите температуру 500 - 999 °C",
   "advancement.createnuclearindustrys.peaceful_atom.title": "Мирный атом",
-  "advancement.createnuclearindustrys.peaceful_atom.description": "Выработайте энергию с помощью термогенератора"
+  "advancement.createnuclearindustrys.peaceful_atom.description": "Выработайте энергию с помощью термогенератора",
+  "advancement.createnuclearindustrys.energy_boom.title": "Энергетический бум",
+  "advancement.createnuclearindustrys.energy_boom.description": "Выработайте 100.000ен с помощью термогенератора",
+  "advancement.createnuclearindustrys.pure_energy.title": "Чистая энергия",
+  "advancement.createnuclearindustrys.pure_energy.description": "Выработайте 1.000.000ен с помощью термогенератора"
 }

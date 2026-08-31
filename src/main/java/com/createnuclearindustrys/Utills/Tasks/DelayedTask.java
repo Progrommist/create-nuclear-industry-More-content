@@ -1,4 +1,4 @@
-package com.createnuclearindustrys.Utills;
+package com.createnuclearindustrys.Utills.Tasks;
 
 public class DelayedTask {
     public final boolean currentPriority;

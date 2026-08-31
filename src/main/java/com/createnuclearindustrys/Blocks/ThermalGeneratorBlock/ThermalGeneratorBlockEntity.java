@@ -3,6 +3,7 @@ package com.createnuclearindustrys.Blocks.ThermalGeneratorBlock;
 import com.createnuclearindustrys.CNIBlocks;
 import com.createnuclearindustrys.CNIFluids;
 import com.createnuclearindustrys.CNITriggers;
+import com.createnuclearindustrys.Utills.Managment.CommonInfo;
 import com.simibubi.create.content.kinetics.base.GeneratingKineticBlockEntity;
 import com.simibubi.create.content.kinetics.motor.CreativeMotorBlock;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
@@ -25,7 +26,7 @@ import java.util.List;
 
 public class ThermalGeneratorBlockEntity extends GeneratingKineticBlockEntity {
 
-    private static final float MAX_SU = 2048f;
+    private static final float MAX_SU = 3072f;
 
     // Fluid tank sizes
     private static final int WATER_CAPACITY = 4000;   // 4 buckets of water buffer
@@ -177,7 +178,7 @@ public class ThermalGeneratorBlockEntity extends GeneratingKineticBlockEntity {
             if (hasNetwork()) notifyStressCapacityChange(calculateAddedStressCapacity());
             Level level = this.getLevel();
             if (level instanceof ServerLevel serverLevel) {
-                CNITriggers.THERMAL_GENERATOR_TRIGGER.get().trigger(findClosestPlayer(this.getBlockPos().getCenter(), serverLevel));
+                CNITriggers.THERMAL_GENERATOR_TRIGGER.get().trigger(CommonInfo.findClosestPlayer(this.getBlockPos().getCenter(), serverLevel));
             }
         }
     }
@@ -214,20 +215,5 @@ public class ThermalGeneratorBlockEntity extends GeneratingKineticBlockEntity {
         heat = tag.getFloat("heat");
         if (tag.contains("waterTank")) waterTank.readFromNBT(registries, tag.getCompound("waterTank"));
         if (tag.contains("steamTank"))  steamTank.readFromNBT(registries,  tag.getCompound("steamTank"));
-    }
-    @Nullable
-    public ServerPlayer findClosestPlayer(Vec3 position, ServerLevel server) {
-        List<ServerPlayer> players = server.players();
-        ServerPlayer closest = null;
-        double closestDistanceSq = Double.MAX_VALUE;
-
-        for (ServerPlayer player : players) {
-            double distanceSq = player.position().distanceToSqr(position);
-            if (distanceSq < closestDistanceSq) {
-                closestDistanceSq = distanceSq;
-                closest = player;
-            }
-        }
-        return closest;
     }
 }
