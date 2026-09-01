@@ -16,8 +16,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.*;
-
-import static com.createnuclearindustrys.Manament.RadiationManager.MELTDOWN_TEMP;
 import static com.createnuclearindustrys.Utills.Managment.CommonInfo.*;
 
 public class RadiationTasks {
@@ -35,7 +33,7 @@ public class RadiationTasks {
         }
         for (BlockPos pos : toRegister) _manager.registerRod(pos, level);
     }
-    public static void meltdown_check(ServerLevel level, Set<BlockPos> rods, Map<BlockPos, Float> rodHeat, RadiationManager _manager){
+    public static void meltdown_check(ServerLevel level, Set<BlockPos> rods, Map<BlockPos, Float> rodHeat, RadiationManager _manager, float MELTDOWN_TEMP){
         /** Dissipate heat; uranium rods melt at 1000°C, everything else just caps */
         List<BlockPos> melted = new ArrayList<>();
         for (Map.Entry<BlockPos, Float> entry : rodHeat.entrySet()) {
@@ -120,14 +118,14 @@ public class RadiationTasks {
         }
     }
 
-    public static void heat_sync(ServerLevel level, Map<BlockPos, Float> rodHeat) {
+    public static void heat_sync(ServerLevel level, Map<BlockPos, Float> rodHeat, float MAX_TEMP) {
         // Sync heat_level block state to clients (drives light + tint)
         for (Map.Entry<BlockPos, Float> entry : rodHeat.entrySet()) {
             BlockPos pos = entry.getKey();
             float heat = entry.getValue();
             BlockState current = level.getBlockState(pos);
             if (current.getBlock() instanceof UraniumFuelRod) {
-                int newLevel = Math.min(15, (int)(heat / MELTDOWN_TEMP * 15));
+                int newLevel = Math.min(15, (int)(heat / MAX_TEMP * 15));
                 if (current.getValue(UraniumFuelRod.HEAT_LEVEL) != newLevel)
                     level.setBlock(pos, current.setValue(UraniumFuelRod.HEAT_LEVEL, newLevel), 2);
             } else if (current.getBlock() instanceof HeatGaugeBlock

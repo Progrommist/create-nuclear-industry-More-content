@@ -19,7 +19,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.FallingBlockEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -32,9 +31,11 @@ import com.createnuclearindustrys.Utills.Managment.CommonInfo;
 import java.util.*;
 
 public class RadiationManager extends SavedData {
+
     private static final String DATA_ID = CreateNuclearIndustrys.MODID + "_radiation";
     public static final int EMIT_INTERVAL = 10;
-    public static final float MELTDOWN_TEMP = 1000f;
+    public float MELTDOWN_TEMP = 1000f;
+    public float MAX_TEMP = 1000f;
 
     private final Map<UUID, RadiationParticle> particles = new LinkedHashMap<>();
     private final Set<BlockPos> rods = new HashSet<>();
@@ -50,14 +51,19 @@ public class RadiationManager extends SavedData {
 
     public void initScheduler() {
         ArrayList<TaskCreator> newTasks = new ArrayList<>();
+        newTasks.addLast(new TaskCreator(level -> _scheduleTasksManager.configRefresh(level, rods, this), () -> -1, () -> true));
+
         newTasks.add(new TaskCreator(level -> RadiationTasks.auto_discover(level, rods, this),
-                () -> Config.AUTO_DISCOVER_TICKS.get(), () -> Config.AUTO_DISCOVER_PRIORITY.get()));
-        newTasks.add(new TaskCreator(level -> RadiationTasks.meltdown_check(level, rods, rodHeat, this),
-                () -> Config.MELTDOWN_CHECK_TICKS.get(), () -> Config.MELTDOWN_CHECK_PRIORITY.get()));
-        newTasks.add(new TaskCreator(level -> RadiationTasks.heat_sync(level, rodHeat),
-                () -> Config.HEAT_SYNC_TICKS.get(), () -> Config.HEAT_SYNC_PRIORITY.get()));
+                Config.AUTO_DISCOVER_TICKS, Config.AUTO_DISCOVER_PRIORITY));
+
+        newTasks.add(new TaskCreator(level -> RadiationTasks.meltdown_check(level, rods, rodHeat, this, MELTDOWN_TEMP),
+                Config.MELTDOWN_CHECK_TICKS, Config.MELTDOWN_CHECK_PRIORITY));
+
+        newTasks.add(new TaskCreator(level -> RadiationTasks.heat_sync(level, rodHeat, MAX_TEMP),
+                Config.HEAT_SYNC_TICKS, Config.HEAT_SYNC_PRIORITY));
+
         newTasks.add(new TaskCreator(level -> RadiationTasks.advancement_trigger(level, rodHeat),
-                () -> Config.ADVANCEMENT_TRIGGER_TICKS.get(), () -> Config.ADVANCEMENT_TRIGGER_PRIORITY.get()));
+                Config.ADVANCEMENT_TRIGGER_TICKS, Config.ADVANCEMENT_TRIGGER_PRIORITY));
 
         _scheduleTasksManager.init(newTasks);
     }
@@ -123,7 +129,7 @@ public class RadiationManager extends SavedData {
         for (BlockPos rod : new ArrayList<>(rods)) {
             if (!level.isLoaded(rod)) continue;
             if (!(level.getBlockState(rod).getBlock() instanceof UraniumFuelRod)) continue;
-            float heatFrac = Math.min(1f, rodHeat.getOrDefault(rod, 0f) / MELTDOWN_TEMP);
+            float heatFrac = Math.min(1f, rodHeat.getOrDefault(rod, 0f) / MAX_TEMP);
             // interval shrinks from 10 (cold) down to 1 (at meltdown temp) — 10× more particles
             int interval = Math.max(1, (int)(EMIT_INTERVAL * (1f - heatFrac * 0.9f)));
             if (rng.nextInt(interval) != 0) continue;

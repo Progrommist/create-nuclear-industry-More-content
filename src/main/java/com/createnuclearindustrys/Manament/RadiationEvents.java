@@ -21,11 +21,11 @@ import java.util.List;
 
 @EventBusSubscriber(modid = CreateNuclearIndustrys.MODID)
 public class RadiationEvents {
-    private boolean isConfigReloaded;
-
-    @SubscribeEvent
+   @SubscribeEvent
     public static void onConfigReload(final ModConfigEvent.Reloading event) {
-
+       for (ScheduleTasksManager i : ScheduleTasksManager.instances) {
+           i.doConfigRefreshNextTime();
+       }
     }
 
     @SubscribeEvent

@@ -3,6 +3,7 @@ package com.createnuclearindustrys.Blocks.ThermalGeneratorBlock;
 import com.createnuclearindustrys.CNIBlocks;
 import com.createnuclearindustrys.CNIFluids;
 import com.createnuclearindustrys.CNITriggers;
+import com.createnuclearindustrys.CreateNuclearIndustrys;
 import com.createnuclearindustrys.Utills.Managment.CommonInfo;
 import com.simibubi.create.content.kinetics.base.GeneratingKineticBlockEntity;
 import com.simibubi.create.content.kinetics.motor.CreativeMotorBlock;
@@ -26,7 +27,8 @@ import java.util.List;
 
 public class ThermalGeneratorBlockEntity extends GeneratingKineticBlockEntity {
 
-    private static final float MAX_SU = 3072f;
+    private static final float MAX_SU = 2048f;
+    public float GENERATING_SPEED = 24f;
 
     // Fluid tank sizes
     private static final int WATER_CAPACITY = 4000;   // 4 buckets of water buffer
@@ -113,7 +115,7 @@ public class ThermalGeneratorBlockEntity extends GeneratingKineticBlockEntity {
         //return (heat > 10f && hasWater() && !fullSteam()) ? 16f : 0f;
         if (heat < 10f || !hasWater() || fullSteam()) return 0;
 
-        return convertToDirection(16.0f, (Direction)this.getBlockState().getValue(CreativeMotorBlock.FACING));
+        return convertToDirection(GENERATING_SPEED, (Direction)this.getBlockState().getValue(CreativeMotorBlock.FACING));
     }
 
     @Override
