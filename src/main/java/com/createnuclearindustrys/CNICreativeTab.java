@@ -44,6 +44,7 @@ public class CNICreativeTab {
 
                         output.accept(CNIItems.ZINC_ROD_ITEM.get());
                         output.accept(CNIItems.HEAT_GAUGE_ITEM.get());
+                        output.accept(CNIItems.REACTIMETER_ITEM.get());
                         output.accept(CNIItems.HEAT_PIPE_ITEM.get());
                         output.accept(CNIItems.THERMAL_GENERATOR_ITEM.get());
                         output.accept(CNIItems.STEAM_BUCKET.get());

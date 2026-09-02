@@ -1,7 +1,10 @@
 package com.createnuclearindustrys.Blocks.UraniumFuelRod;
 
+import com.createnuclearindustrys.Utills.Interfaces.HeatNodeBlock;
+import com.createnuclearindustrys.Utills.Interfaces.Heat_syncer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -19,8 +22,9 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
+import java.util.Map;
 
-public class UraniumFuelRod extends Block implements EntityBlock{
+public class UraniumFuelRod extends Block implements EntityBlock, HeatNodeBlock, Heat_syncer {
     public static final IntegerProperty HEAT_LEVEL = IntegerProperty.create("heat_level", 0, 15);
     private static final VoxelShape SHAPE = Block.box(4, 0, 4, 12, 16, 12);
 
@@ -71,5 +75,15 @@ public class UraniumFuelRod extends Block implements EntityBlock{
         }
 
         return InteractionResult.SUCCESS;
+    }
+
+    @Override
+    public void heat_sync(Map.Entry<BlockPos, Float> entry, ServerLevel level, float MAX_TEMP) {
+        BlockPos pos = entry.getKey();
+        float heat = entry.getValue();
+        BlockState current = level.getBlockState(pos);
+        int newLevel = Math.min(15, (int)(heat / MAX_TEMP * 15));
+        if (current.getValue(UraniumFuelRod.HEAT_LEVEL) != newLevel)
+            level.setBlock(pos, current.setValue(UraniumFuelRod.HEAT_LEVEL, newLevel), 2);
     }
 }

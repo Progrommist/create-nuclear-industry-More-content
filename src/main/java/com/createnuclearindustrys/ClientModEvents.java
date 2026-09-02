@@ -24,6 +24,7 @@ public class ClientModEvents {
             registerTooltip(CNIItems.MUTATED_BREAD.get());
             registerTooltip(CNIItems.URANIUM_BREAD.get());
             registerTooltip(CNIItems.HEAT_GAUGE_ITEM.get());
+            registerTooltip(CNIItems.REACTIMETER_ITEM.get());
             registerTooltip(CNIItems.HEAT_PIPE_ITEM.get());
             registerTooltip(CNIItems.THERMAL_GENERATOR_ITEM.get());
         });

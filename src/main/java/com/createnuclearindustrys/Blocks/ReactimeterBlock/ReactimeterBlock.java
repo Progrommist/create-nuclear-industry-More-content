@@ -1,5 +1,6 @@
-package com.createnuclearindustrys.Blocks.HeatGaugeBlock;
+package com.createnuclearindustrys.Blocks.ReactimeterBlock;
 
+import com.createnuclearindustrys.Blocks.HeatGaugeBlock.HeatGaugeBlockEntity;
 import com.createnuclearindustrys.Manament.RadiationManager;
 import com.createnuclearindustrys.Utills.Interfaces.HeatNodeBlock;
 import com.createnuclearindustrys.Utills.Interfaces.Heat_syncer;
@@ -15,6 +16,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -27,7 +29,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import javax.annotation.Nullable;
 import java.util.Map;
 
-public class HeatGaugeBlock extends Block implements EntityBlock, HeatNodeBlock, Heat_syncer {
+public class ReactimeterBlock extends Block implements EntityBlock, HeatNodeBlock, Heat_syncer {
     public static final DirectionProperty FACING = BlockStateProperties.FACING;
     private static final VoxelShape BASE_SHAPE = Shapes.box(
             4.0/16.0, 0.0/16.0, 4.0/16.0,
@@ -84,7 +86,7 @@ public class HeatGaugeBlock extends Block implements EntityBlock, HeatNodeBlock,
     public VoxelShape getInteractionShape(BlockState state, BlockGetter level, BlockPos pos) {
         return getShape(state, level, pos, CollisionContext.empty());
     }
-    public HeatGaugeBlock(Properties properties) {
+    public ReactimeterBlock(BlockBehaviour.Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
@@ -101,7 +103,7 @@ public class HeatGaugeBlock extends Block implements EntityBlock, HeatNodeBlock,
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new HeatGaugeBlockEntity(pos, state);
+        return new ReactimeterBlockEntity(pos, state);
     }
 
     @Override
@@ -109,27 +111,27 @@ public class HeatGaugeBlock extends Block implements EntityBlock, HeatNodeBlock,
         if (level.isClientSide()) return InteractionResult.SUCCESS;
 
         float heat = RadiationManager.get((ServerLevel) level).getHeat(pos);
-        player.sendSystemMessage(Component.literal(String.format("[Heat Gauge] %.1f°C", heat)));
+        player.sendSystemMessage(Component.literal(String.format("[Reactimeter] %.3f", heat)));
 
         return InteractionResult.SUCCESS;
     }
 
     // ── Analog redstone output ────────────────────────────────────────────────
 
-    /** The Heat Gauge emits a comparator/redstone signal proportional to its heat. */
+    /** The Reactimeter emits a comparator/redstone signal proportional to its reactivity. */
     @Override
     protected boolean isSignalSource(BlockState state) {
         return true;
     }
 
     /**
-     * Returns 0–15 linearly mapped to 0°C – 1000°C (meltdown temperature).
+     * Returns 0–15 linearly mapped to -1 – 1
      * A comparator placed next to the gauge will read this value directly.
      */
     @Override
     protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
-        if (level.getBlockEntity(pos) instanceof HeatGaugeBlockEntity be)
-            return Math.min(15, (int)(be.heat / 1000f * 15));
+        if (level.getBlockEntity(pos) instanceof ReactimeterBlockEntity be)
+            return Math.min(15, (int)((be.reactivity + 1) * 8));
         return 0;
     }
 
@@ -141,7 +143,7 @@ public class HeatGaugeBlock extends Block implements EntityBlock, HeatNodeBlock,
 
     @Override
     public void heat_sync(Map.Entry<BlockPos, Float> entry, ServerLevel level, float MAX_TEMP) {
-        if (level.getBlockEntity(entry.getKey()) instanceof HeatGaugeBlockEntity be){
+        if (level.getBlockEntity(entry.getKey()) instanceof ReactimeterBlockEntity be){
             be.setHeat(entry.getValue());
         }
     }

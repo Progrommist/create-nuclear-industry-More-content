@@ -5,6 +5,7 @@
   "block.createnuclearindustrys.uranium_fuel_rod": "Uranium Fuel Rod",
   "block.createnuclearindustrys.boron_control_rod": "Boron Control Rod",
   "block.createnuclearindustrys.heat_gauge": "Heat Gauge",
+  "block.createnuclearindustrys.reactimeter": "Reactimeter",
   "block.createnuclearindustrys.heat_pipe": "Heat Pipe",
   "block.createnuclearindustrys.thermal_generator": "Thermal Generator",
   "block.createnuclearindustrys.zinc_rod": "Zinc rod",
@@ -21,7 +22,8 @@
   "item.createnuclearindustrys.uranium_bread": "Uranium bread",
   "item.createnuclearindustrys.yellow_cake": "Yellow cake",
   "item.createnuclearindustrys.potassium_iodide": "Potassium iodide",
-  "item.createnuclearindustrys.gaseous_uranium_bucket": "Gaseous uranium bucket",
+  "item.createnuclearindustrys.unprocessed_uranium_fuel_rod": "Unprocessed uranium fuel rod",
+  "item.createnuclearindustrys.unprocessed_boron_rod": "Unprocessed boron rod",
 
   "enchantment.createnuclearindustrys.radiation_attack": "Radiation attack",
 
@@ -38,6 +40,10 @@
   "block.createnuclearindustrys.heat_gauge.tooltip.summary": "Monitors the _temperature_ of a connected heat network.",
   "block.createnuclearindustrys.heat_gauge.tooltip.condition1": "When Connected to Heat Network",
   "block.createnuclearindustrys.heat_gauge.tooltip.behaviour1": "Displays the current _heat level_ in degrees. Place between a reactor and generator to track output and prevent overheating.",
+
+  "block.createnuclearindustrys.reactimeter.tooltip.summary": "Monitors the _reactivity_ of a connected heat network.",
+  "block.createnuclearindustrys.reactimeter.tooltip.condition1": "When Connected to Heat Network",
+  "block.createnuclearindustrys.reactimeter.tooltip.behaviour1": "Displays the current _reactivity level_ calculated using the temperature. Place between a reactor and generator to track output and prevent overheating.",
 
   "block.createnuclearindustrys.heat_pipe.tooltip.summary": "Conducts _thermal energy_ between heat network components.",
   "block.createnuclearindustrys.heat_pipe.tooltip.condition1": "When Connected to Heat Sources",
@@ -72,7 +78,9 @@
   "effect.createnuclearindustrys.radiation_protection": "Radiation Protection",
 
   "fluid_type.createnuclearindustrys.steam": "Steam",
+  "fluid_type.createnuclearindustrys.gaseous_uranium": "Gaseous uranium",
   "item.createnuclearindustrys.steam_bucket": "Bucket of Steam",
+  "item.createnuclearindustrys.gaseous_uranium_bucket": "Gaseous uranium bucket",
 
   "createnuclearindustrys.configuration.title": "Create Nuclear Industrys: more content Configs",
   "createnuclearindustrys.configuration.section.createnuclearindustrys.common.toml": "Create Nuclear Industrys: more content Configs",

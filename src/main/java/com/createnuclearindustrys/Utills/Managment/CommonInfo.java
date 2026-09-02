@@ -1,10 +1,9 @@
 package com.createnuclearindustrys.Utills.Managment;
 
 import com.createnuclearindustrys.Blocks.BoronControlRod.BoronControlRod;
-import com.createnuclearindustrys.Blocks.HeatGaugeBlock.HeatGaugeBlock;
 import com.createnuclearindustrys.Blocks.HeatPipeBlock.HeatPipeBlock;
-import com.createnuclearindustrys.Blocks.ThermalGeneratorBlock.ThermalGeneratorBlock;
 import com.createnuclearindustrys.Blocks.UraniumFuelRod.UraniumFuelRod;
+import com.createnuclearindustrys.Utills.Interfaces.HeatNodeBlock;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.block.Block;
@@ -17,8 +16,7 @@ import java.util.List;
 
 public class CommonInfo {
     public static boolean isHeatNode(Block b) {
-        return b instanceof UraniumFuelRod || b instanceof HeatGaugeBlock
-                || b instanceof HeatPipeBlock || b instanceof ThermalGeneratorBlock;
+        return b instanceof HeatNodeBlock;
     }
     @Nullable
     public static ServerPlayer findClosestPlayer(Vec3 position, ServerLevel server) {

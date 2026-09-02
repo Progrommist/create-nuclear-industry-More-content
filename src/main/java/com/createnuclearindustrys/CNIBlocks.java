@@ -4,6 +4,8 @@ import com.createnuclearindustrys.Blocks.BoronControlRod.BoronControlRod;
 import com.createnuclearindustrys.Blocks.HeatGaugeBlock.HeatGaugeBlock;
 import com.createnuclearindustrys.Blocks.HeatGaugeBlock.HeatGaugeBlockEntity;
 import com.createnuclearindustrys.Blocks.HeatPipeBlock.HeatPipeBlock;
+import com.createnuclearindustrys.Blocks.ReactimeterBlock.ReactimeterBlock;
+import com.createnuclearindustrys.Blocks.ReactimeterBlock.ReactimeterBlockEntity;
 import com.createnuclearindustrys.Blocks.UraniumFuelRod.UraniumFuelRodEntity;
 import com.createnuclearindustrys.Fluid.SteamFluid.SteamFluidBlock;
 import com.createnuclearindustrys.Blocks.ThermalGeneratorBlock.ThermalGeneratorBlock;
@@ -31,6 +33,10 @@ public class CNIBlocks {
 
     public static final DeferredBlock<HeatGaugeBlock> HEAT_GAUGE = BLOCKS.registerBlock("heat_gauge",
             HeatGaugeBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY)
+                    .strength(2.0f, 6.0f).requiresCorrectToolForDrops());
+
+    public static final DeferredBlock<ReactimeterBlock> REACTIMETER = BLOCKS.registerBlock("reactimeter",
+            ReactimeterBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY)
                     .strength(2.0f, 6.0f).requiresCorrectToolForDrops());
 
     public static final DeferredBlock<BoronControlRod> BORON_CONTROL_ROD = BLOCKS.registerBlock("boron_control_rod",
@@ -71,6 +77,9 @@ public class CNIBlocks {
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<HeatGaugeBlockEntity>> HEAT_GAUGE_BLOCK_ENTITY =
             BLOCK_ENTITY_TYPES.register("heat_gauge", () -> BlockEntityType.Builder.of(
                     HeatGaugeBlockEntity::new, HEAT_GAUGE.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ReactimeterBlockEntity>> REACTIMETER_BLOCK_ENTITY =
+            BLOCK_ENTITY_TYPES.register("reactimeter", () -> BlockEntityType.Builder.of(
+                    ReactimeterBlockEntity::new, REACTIMETER.get()).build(null));
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ThermalGeneratorBlockEntity>> THERMAL_GENERATOR_BLOCK_ENTITY =
             BLOCK_ENTITY_TYPES.register("thermal_generator", () -> BlockEntityType.Builder.of(

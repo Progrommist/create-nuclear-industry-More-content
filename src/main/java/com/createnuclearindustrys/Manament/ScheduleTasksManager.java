@@ -96,6 +96,7 @@ public class ScheduleTasksManager {
         }
 
         _radiationManager.MELTDOWN_TEMP = Config.MELTDOWN_TEMPERATURE.get();
+        _radiationManager.MAX_TEMP = Config.MAX_TEMPERATURE.get();
     }
 
     public void doConfigRefreshNextTime() {

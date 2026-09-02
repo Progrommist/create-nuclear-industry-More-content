@@ -8,6 +8,7 @@ import com.createnuclearindustrys.Blocks.ThermalGeneratorBlock.ThermalGeneratorB
 import com.createnuclearindustrys.Blocks.UraniumFuelRod.UraniumFuelRod;
 import com.createnuclearindustrys.CNITriggers;
 import com.createnuclearindustrys.CreateNuclearIndustrys;
+import com.createnuclearindustrys.Utills.Interfaces.Heat_syncer;
 import com.createnuclearindustrys.Utills.Managment.CommonInfo;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -122,18 +123,9 @@ public class RadiationTasks {
         // Sync heat_level block state to clients (drives light + tint)
         for (Map.Entry<BlockPos, Float> entry : rodHeat.entrySet()) {
             BlockPos pos = entry.getKey();
-            float heat = entry.getValue();
-            BlockState current = level.getBlockState(pos);
-            if (current.getBlock() instanceof UraniumFuelRod) {
-                int newLevel = Math.min(15, (int)(heat / MAX_TEMP * 15));
-                if (current.getValue(UraniumFuelRod.HEAT_LEVEL) != newLevel)
-                    level.setBlock(pos, current.setValue(UraniumFuelRod.HEAT_LEVEL, newLevel), 2);
-            } else if (current.getBlock() instanceof HeatGaugeBlock
-                    && level.getBlockEntity(pos) instanceof HeatGaugeBlockEntity be) {
-                be.setHeat(heat);
-            } else if (current.getBlock() instanceof ThermalGeneratorBlock
-                    && level.getBlockEntity(pos) instanceof ThermalGeneratorBlockEntity tbe) {
-                tbe.setHeat(heat);
+
+            if (level.getBlockState(pos).getBlock() instanceof Heat_syncer hs) {
+                hs.heat_sync(entry, level, MAX_TEMP);
             }
         }
     }
@@ -143,7 +135,7 @@ public class RadiationTasks {
             CNITriggers.TEMPERATURE_TRIGGER.get().trigger(CommonInfo.findClosestPlayer(i.getKey().getCenter(), level), i.getValue());
 
             if (level.getBlockEntity(i.getKey()) instanceof ThermalGeneratorBlockEntity tgbe) {
-                totalSU += tgbe.calculateAddedStressCapacity() * tgbe.getGeneratedSpeed();
+                totalSU += tgbe.calculateAddedStressCapacity();
             }
         }
         for (ServerPlayer i : level.players()) {

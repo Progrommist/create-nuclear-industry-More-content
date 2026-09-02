@@ -12,6 +12,7 @@ public class Config {
 
     public static final ModConfigSpec.IntValue GENERATING_SPEED;
     public static final ModConfigSpec.IntValue MELTDOWN_TEMPERATURE;
+    public static final ModConfigSpec.IntValue MAX_TEMPERATURE;
 
     public static final ModConfigSpec.BooleanValue CONSOLE_DEBUG;
 
@@ -36,6 +37,9 @@ public class Config {
         MELTDOWN_TEMPERATURE = BUILDER
                 .comment("The temperature at which the reactor explodes")
                 .defineInRange("meltdown_temperature", 1000, 0, Integer.MAX_VALUE);
+        MAX_TEMPERATURE = BUILDER
+                .comment("The temperature at which the uranium fuel emits maximum particles")
+                .defineInRange("max_temperature", 1000, 0, Integer.MAX_VALUE);
         BUILDER.pop();
 
         BUILDER.push("Scheduler manager");

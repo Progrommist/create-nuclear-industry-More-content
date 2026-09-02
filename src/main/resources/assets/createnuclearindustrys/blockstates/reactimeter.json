@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "createnuclearindustrys:block/heat_gauge",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "createnuclearindustrys:block/heat_gauge",
+      "x": 90,
+      "y": 90
+    },
+
+    "facing=north": {
+      "model": "createnuclearindustrys:block/heat_gauge",
+      "x": 90
+    },
+
+    "facing=south": {
+      "model": "createnuclearindustrys:block/heat_gauge",
+      "x": 90,
+      "y": 180
+    },
+
+    "facing=up": {
+      "model": "createnuclearindustrys:block/heat_gauge"
+    },
+
+    "facing=west": {
+      "model": "createnuclearindustrys:block/heat_gauge",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

@@ -76,6 +76,8 @@ public class CNIItems {
 
     public static final DeferredItem<BlockItem> HEAT_GAUGE_ITEM =
             ITEMS.registerSimpleBlockItem("heat_gauge", CNIBlocks.HEAT_GAUGE);
+    public static final DeferredItem<BlockItem> REACTIMETER_ITEM =
+            ITEMS.registerSimpleBlockItem("reactimeter", CNIBlocks.REACTIMETER);
 
     public static final DeferredItem<BlockItem> BORON_CONTROL_ROD_ITEM =
             ITEMS.registerSimpleBlockItem("boron_control_rod", CNIBlocks.BORON_CONTROL_ROD);

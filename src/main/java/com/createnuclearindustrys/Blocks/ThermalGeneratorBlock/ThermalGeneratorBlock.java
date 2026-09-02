@@ -1,17 +1,23 @@
 package com.createnuclearindustrys.Blocks.ThermalGeneratorBlock;
 
+import com.createnuclearindustrys.Blocks.HeatGaugeBlock.HeatGaugeBlockEntity;
 import com.createnuclearindustrys.CNIBlocks;
+import com.createnuclearindustrys.Utills.Interfaces.HeatNodeBlock;
+import com.createnuclearindustrys.Utills.Interfaces.Heat_syncer;
 import com.simibubi.create.content.kinetics.base.DirectionalKineticBlock;
 import com.simibubi.create.foundation.block.IBE;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 
-public class ThermalGeneratorBlock extends DirectionalKineticBlock implements IBE<ThermalGeneratorBlockEntity> {
+import java.util.Map;
+
+public class ThermalGeneratorBlock extends DirectionalKineticBlock implements IBE<ThermalGeneratorBlockEntity>, HeatNodeBlock, Heat_syncer {
 
     public ThermalGeneratorBlock(Properties props) {
         super(props);
@@ -53,5 +59,10 @@ public class ThermalGeneratorBlock extends DirectionalKineticBlock implements IB
     @Override
     public BlockEntityType<? extends ThermalGeneratorBlockEntity> getBlockEntityType() {
         return CNIBlocks.THERMAL_GENERATOR_BLOCK_ENTITY.get();
+    }
+    public void heat_sync(Map.Entry<BlockPos, Float> entry, ServerLevel level, float MAX_TEMP) {
+        if (level.getBlockEntity(entry.getKey()) instanceof ThermalGeneratorBlockEntity tgbe){
+            tgbe.setHeat(entry.getValue());
+        }
     }
 }

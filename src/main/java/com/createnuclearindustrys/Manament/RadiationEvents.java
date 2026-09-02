@@ -5,6 +5,7 @@ import com.createnuclearindustrys.Blocks.HeatGaugeBlock.HeatGaugeBlock;
 import com.createnuclearindustrys.Blocks.HeatPipeBlock.HeatPipeBlock;
 import com.createnuclearindustrys.Blocks.ThermalGeneratorBlock.ThermalGeneratorBlock;
 import com.createnuclearindustrys.Blocks.UraniumFuelRod.UraniumFuelRod;
+import com.createnuclearindustrys.Utills.Interfaces.Heat_syncer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
@@ -84,8 +85,7 @@ public class RadiationEvents {
     public static void onBlockPlaced(BlockEvent.EntityPlaceEvent event) {
         if (!(event.getLevel() instanceof ServerLevel serverLevel)) return;
         Block placed = event.getPlacedBlock().getBlock();
-        if (placed instanceof UraniumFuelRod || placed instanceof HeatGaugeBlock
-                || placed instanceof HeatPipeBlock || placed instanceof ThermalGeneratorBlock) {
+        if (placed instanceof Heat_syncer) {
             RadiationManager.get(serverLevel).registerRod(event.getPos(), serverLevel);
         }
     }
@@ -94,8 +94,7 @@ public class RadiationEvents {
     public static void onBlockBroken(BlockEvent.BreakEvent event) {
         if (!(event.getLevel() instanceof ServerLevel serverLevel)) return;
         Block broken = event.getState().getBlock();
-        if (broken instanceof UraniumFuelRod || broken instanceof HeatGaugeBlock
-                || broken instanceof HeatPipeBlock || broken instanceof ThermalGeneratorBlock) {
+        if (broken instanceof Heat_syncer) {
             RadiationManager.get(serverLevel).removeRod(event.getPos(), serverLevel);
         }
     }

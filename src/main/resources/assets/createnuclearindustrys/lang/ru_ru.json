@@ -5,6 +5,7 @@
   "block.createnuclearindustrys.uranium_fuel_rod": "Урановый топливный стержень",
   "block.createnuclearindustrys.boron_control_rod": "Боровый регулирующий стержень",
   "block.createnuclearindustrys.heat_gauge": "Тепловой датчик",
+  "block.createnuclearindustrys.reactimeter": "Реактиметер",
   "block.createnuclearindustrys.heat_pipe": "Тепловая труба",
   "block.createnuclearindustrys.thermal_generator": "Термогенератор",
   "block.createnuclearindustrys.zinc_rod": "Цинковый стержень",
@@ -21,7 +22,8 @@
   "item.createnuclearindustrys.uranium_bread": "Урановый хлеб",
   "item.createnuclearindustrys.yellow_cake": "Жёлтый кек",
   "item.createnuclearindustrys.potassium_iodide": "Йодид калия",
-  "item.createnuclearindustrys.gaseous_uranium_bucket": "Ведро газообразного урана",
+  "item.createnuclearindustrys.unprocessed_uranium_fuel_rod": "Незаконченный урановый топливный стержень",
+  "item.createnuclearindustrys.unprocessed_boron_rod": "Незаконченный боровый регулирующий стержень",
 
   "enchantment.createnuclearindustrys.radiation_attack": "Радиационная атака",
 
@@ -71,7 +73,9 @@
   "effect.createnuclearindustrys.radiation_protection": "Защита от радиации",
 
   "fluid_type.createnuclearindustrys.steam": "Пар",
+  "fluid_type.createnuclearindustrys.gaseous_uranium": "Газообразный уран",
   "item.createnuclearindustrys.steam_bucket": "Ведро пара",
+  "item.createnuclearindustrys.gaseous_uranium_bucket": "Ведро газообразного урана",
 
   "createnuclearindustrys.configuration.title": "Конфигурация Create Nuclear Industrys",
   "createnuclearindustrys.configuration.section.createnuclearindustrys.common.toml": "Конфигурация Create Nuclear Industrys",

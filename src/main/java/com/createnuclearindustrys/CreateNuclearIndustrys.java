@@ -48,6 +48,13 @@ public class CreateNuclearIndustrys {
 
         event.enqueueWork(() -> {
             DisplaySource.BY_BLOCK_ENTITY.register(
+                    CNIBlocks.REACTIMETER_BLOCK_ENTITY.get(),
+                    List.of(CNIDisplaySources.REACTIMETER_DISPLAY_SOURCE.get())
+            );
+        });
+
+        event.enqueueWork(() -> {
+            DisplaySource.BY_BLOCK_ENTITY.register(
                     CNIBlocks.THERMAL_GENERATOR_BLOCK_ENTITY.get(),
                     List.of(
                             CNIDisplaySources.THERMAL_GENERATOR_WATER_DISPLAY_SOURCE.get(),

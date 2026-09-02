@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "E",
+    "H"
+  ],
+  "key": {
+    "E": {"item": "minecraft:compass"},
+    "H": {"item": "createnuclearindustrys:heat_pipe"}
+  },
+  "result": {
+    "id": "createnuclearindustrys:heat_gauge",
+    "count": 1
+  }
+}
