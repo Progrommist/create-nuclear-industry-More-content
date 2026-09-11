@@ -13,7 +13,7 @@ public class ReactimeterDisplaySource extends SingleLineDisplaySource {
         BlockEntity be = context.getSourceBlockEntity();
         if (!(be instanceof ReactimeterBlockEntity rbe))
             return Component.literal("---");
-        return Component.literal(String.format("%.3f", rbe.reactivity));
+        return Component.literal(String.format("%.4f", rbe.reactivity));
     }
 
     /** Allow the user to add a custom label prefix via the Display Link GUI. */

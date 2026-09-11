@@ -1,9 +1,6 @@
 package com.createnuclearindustrys.Blocks.ThermalGeneratorBlock;
 
-import com.createnuclearindustrys.CNIBlocks;
-import com.createnuclearindustrys.CNIFluids;
-import com.createnuclearindustrys.CNITriggers;
-import com.createnuclearindustrys.CreateNuclearIndustrys;
+import com.createnuclearindustrys.*;
 import com.createnuclearindustrys.Utills.Managment.CommonInfo;
 import com.simibubi.create.content.kinetics.base.GeneratingKineticBlockEntity;
 import com.simibubi.create.content.kinetics.motor.CreativeMotorBlock;
@@ -28,15 +25,13 @@ import java.util.List;
 public class ThermalGeneratorBlockEntity extends GeneratingKineticBlockEntity {
 
     private static final float MAX_SU = 2048f;
-    public float GENERATING_SPEED = 24f;
+    public final float BASE_SPEED = 24;
 
     // Fluid tank sizes
     private static final int WATER_CAPACITY = 4000;   // 4 buckets of water buffer
     private static final int STEAM_CAPACITY  = 8000;  // 8 buckets of steam output buffer
 
-    // Per-tick conversion rate when running: 5 mB water → 50 mB steam (10× expansion)
     private static final int WATER_PER_TICK = 5;
-    private static final int STEAM_PER_TICK  = 50;
 
     float heat = 0f;
     /** Tracks water state so we can notify the kinetic network if it changes between heat updates. */
@@ -115,7 +110,8 @@ public class ThermalGeneratorBlockEntity extends GeneratingKineticBlockEntity {
         //return (heat > 10f && hasWater() && !fullSteam()) ? 16f : 0f;
         if (heat < 10f || !hasWater() || fullSteam()) return 0;
 
-        return convertToDirection(GENERATING_SPEED, (Direction)this.getBlockState().getValue(CreativeMotorBlock.FACING));
+
+        return convertToDirection(BASE_SPEED, (Direction)this.getBlockState().getValue(CreativeMotorBlock.FACING));
     }
 
     @Override
@@ -218,4 +214,10 @@ public class ThermalGeneratorBlockEntity extends GeneratingKineticBlockEntity {
         if (tag.contains("waterTank")) waterTank.readFromNBT(registries, tag.getCompound("waterTank"));
         if (tag.contains("steamTank"))  steamTank.readFromNBT(registries,  tag.getCompound("steamTank"));
     }
+
+    public void updateCapacity() {
+        if (hasNetwork()) notifyStressCapacityChange(calculateAddedStressCapacity());
+    }
+
+
 }

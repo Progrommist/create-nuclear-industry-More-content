@@ -52,9 +52,9 @@ public class ReactimeterBlockEntity extends BlockEntity implements IHaveGoggleIn
     @Override
     public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
         tooltip.add(Component.literal("    Reactimeter").withStyle(ChatFormatting.WHITE));
-        if (reactivity < 0.001f) tooltip.add(Component.literal("Reactivity:  " + String.format("%.3f", reactivity)).withStyle(ChatFormatting.GREEN));
-        else if (reactivity < 0.004f) tooltip.add(Component.literal("Reactivity:  " + String.format("%.3f", reactivity)).withStyle(ChatFormatting.YELLOW));
-        else tooltip.add(Component.literal("Reactivity:  " + String.format("%.3f", reactivity)).withStyle(ChatFormatting.RED));
+        if (reactivity < 0.001f) tooltip.add(Component.literal("Reactivity:  " + String.format("%.4f", reactivity)).withStyle(ChatFormatting.GREEN));
+        else if (reactivity < 0.004f) tooltip.add(Component.literal("Reactivity:  " + String.format("%.4f", reactivity)).withStyle(ChatFormatting.YELLOW));
+        else tooltip.add(Component.literal("Reactivity:  " + String.format("%.4f", reactivity)).withStyle(ChatFormatting.RED));
         return true;
     }
 

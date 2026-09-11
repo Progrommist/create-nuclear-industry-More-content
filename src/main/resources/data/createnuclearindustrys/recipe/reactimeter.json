@@ -9,7 +9,7 @@
     "H": {"item": "createnuclearindustrys:heat_pipe"}
   },
   "result": {
-    "id": "createnuclearindustrys:heat_gauge",
+    "id": "createnuclearindustrys:reactimeter",
     "count": 1
   }
 }

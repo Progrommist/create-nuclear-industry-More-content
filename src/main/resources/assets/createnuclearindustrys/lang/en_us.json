@@ -43,7 +43,7 @@
 
   "block.createnuclearindustrys.reactimeter.tooltip.summary": "Monitors the _reactivity_ of a connected heat network.",
   "block.createnuclearindustrys.reactimeter.tooltip.condition1": "When Connected to Heat Network",
-  "block.createnuclearindustrys.reactimeter.tooltip.behaviour1": "Displays the current _reactivity level_ calculated using the temperature. Place between a reactor and generator to track output and prevent overheating.",
+  "block.createnuclearindustrys.reactimeter.tooltip.behaviour1": "Displays the current _reactivity level_ calculated using the temperature difference. Place between a reactor and generator to track output and prevent overheating.",
 
   "block.createnuclearindustrys.heat_pipe.tooltip.summary": "Conducts _thermal energy_ between heat network components.",
   "block.createnuclearindustrys.heat_pipe.tooltip.condition1": "When Connected to Heat Sources",

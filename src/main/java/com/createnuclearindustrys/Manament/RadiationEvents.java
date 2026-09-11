@@ -40,14 +40,8 @@ public class RadiationEvents {
         List<RadiationParticle> born = manager.drainPendingBroadcast();
         if (born.isEmpty()) return;
 
-        List<ServerPlayer> playersWithGoggles = serverLevel.getPlayers(
-                player -> hasEngineersGoggles(player)
-        );
-
-        if (playersWithGoggles.isEmpty()) return;
-
         for (RadiationParticle p : born) {
-            RadiationBirthPacket particlePacket = new RadiationBirthPacket(
+            PacketDistributor.sendToPlayersInDimension(serverLevel, new RadiationBirthPacket(
                     p.id,
                     p.pos.x, p.pos.y, p.pos.z,
                     p.vel.x, p.vel.y, p.vel.z,
@@ -55,31 +49,9 @@ public class RadiationEvents {
                     p.energy,
                     p.ticksLeft,
                     p.source.asLong()
-            );
-            for (ServerPlayer player : playersWithGoggles) {
-                PacketDistributor.sendToPlayer(player, particlePacket);
-            }
+            ));
         }
-        //for (RadiationParticle p : born) {
-        //PacketDistributor.sendToPlayersInDimension(serverLevel, new RadiationBirthPacket(
-        //p.id,
-        //p.pos.x, p.pos.y, p.pos.z,
-        //p.vel.x, p.vel.y, p.vel.z,
-        //p.r, p.g, p.b,
-        //p.energy,
-        //p.ticksLeft,
-        //p.source.asLong()
-        //));
     }
-
-
-    private static boolean hasEngineersGoggles(ServerPlayer player) {
-        ItemStack helmet = player.getInventory().getArmor(3); // 3 = helmet slot
-
-        // Проверяем, является ли шлем инженерными очками Create
-        return helmet.getItem() == com.simibubi.create.AllItems.GOGGLES.get();
-    }
-
 
     @SubscribeEvent
     public static void onBlockPlaced(BlockEvent.EntityPlaceEvent event) {

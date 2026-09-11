@@ -111,7 +111,7 @@ public class ReactimeterBlock extends Block implements EntityBlock, HeatNodeBloc
         if (level.isClientSide()) return InteractionResult.SUCCESS;
 
         float heat = RadiationManager.get((ServerLevel) level).getHeat(pos);
-        player.sendSystemMessage(Component.literal(String.format("[Reactimeter] %.3f", heat)));
+        player.sendSystemMessage(Component.literal(String.format("[Reactimeter] %.4f", heat)));
 
         return InteractionResult.SUCCESS;
     }

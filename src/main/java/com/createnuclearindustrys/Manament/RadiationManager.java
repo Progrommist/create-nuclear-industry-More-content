@@ -51,7 +51,7 @@ public class RadiationManager extends SavedData {
 
     public void initScheduler() {
         ArrayList<TaskCreator> newTasks = new ArrayList<>();
-        newTasks.addLast(new TaskCreator(level -> _scheduleTasksManager.configRefresh(level, rods, this), () -> -1, () -> true));
+        newTasks.addLast(new TaskCreator(level -> _scheduleTasksManager.configRefresh(this), () -> -1, () -> true));
 
         newTasks.add(new TaskCreator(level -> RadiationTasks.auto_discover(level, rods, this),
                 Config.AUTO_DISCOVER_TICKS, Config.AUTO_DISCOVER_PRIORITY));

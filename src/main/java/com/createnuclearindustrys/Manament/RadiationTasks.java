@@ -135,11 +135,12 @@ public class RadiationTasks {
             CNITriggers.TEMPERATURE_TRIGGER.get().trigger(CommonInfo.findClosestPlayer(i.getKey().getCenter(), level), i.getValue());
 
             if (level.getBlockEntity(i.getKey()) instanceof ThermalGeneratorBlockEntity tgbe) {
-                totalSU += tgbe.calculateAddedStressCapacity();
+                totalSU += tgbe.calculateAddedStressCapacity() * tgbe.BASE_SPEED;
             }
         }
         for (ServerPlayer i : level.players()) {
             CNITriggers.THERMAL_GENERATOR_ENERGY_TRIGGER.get().trigger(i, totalSU);
         }
+        CreateNuclearIndustrys.LOGGER.info(String.valueOf(totalSU));
     }
 }

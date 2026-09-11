@@ -41,6 +41,10 @@
   "block.createnuclearindustrys.heat_gauge.tooltip.condition1": "При подключении к тепловой сети",
   "block.createnuclearindustrys.heat_gauge.tooltip.behaviour1": "Отображает текущий _уровень тепла_ в градусах. Разместите между реактором и генератором для контроля выработки и предотвращения перегрева.",
 
+  "block.createnuclearindustrys.reactimeter.tooltip.summary": "Отслеживает _реактивность_ подключённой тепловой сети.",
+  "block.createnuclearindustrys.reactimeter.tooltip.condition1": "При подключении к тепловой сети",
+  "block.createnuclearindustrys.reactimeter.tooltip.behaviour1": "Отображает текущий _уровень реактивности_ рассчитанный с помощью разницы температур. Разместите между реактором и генератором для контроля выработки и предотвращения перегрева.",
+
   "block.createnuclearindustrys.heat_pipe.tooltip.summary": "Передаёт _тепловую энергию_ между компонентами тепловой сети.",
   "block.createnuclearindustrys.heat_pipe.tooltip.condition1": "При подключении к источникам тепла",
   "block.createnuclearindustrys.heat_pipe.tooltip.behaviour1": "Постепенно _выравнивает температуру_ по всем подключённым узлам. Направляйте энергию от _реактора_ к _термогенератору_ с помощью труб.",

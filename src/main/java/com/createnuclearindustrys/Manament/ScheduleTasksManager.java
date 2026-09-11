@@ -1,15 +1,12 @@
 package com.createnuclearindustrys.Manament;
 
-import com.createnuclearindustrys.Blocks.ThermalGeneratorBlock.ThermalGeneratorBlockEntity;
 import com.createnuclearindustrys.Config;
 import com.createnuclearindustrys.CreateNuclearIndustrys;
 import com.createnuclearindustrys.Utills.Tasks.ConfigTaskCache;
 import com.createnuclearindustrys.Utills.Tasks.DelayedTask;
 import com.createnuclearindustrys.Utills.Tasks.Task;
 import com.createnuclearindustrys.Utills.Tasks.TaskCreator;
-import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.level.block.entity.BlockEntity;
 
 import java.util.*;
 
@@ -82,18 +79,11 @@ public class ScheduleTasksManager {
         }
     }
 
-    void configRefresh(ServerLevel level, Set<BlockPos> rods, RadiationManager _radiationManager) {
+    void configRefresh(RadiationManager _radiationManager) {
         for (Task i : tasks) {
             i.configTaskCache.refresh();
         }
         isDebugging = Config.CONSOLE_DEBUG.get();
-
-        for (BlockPos i : rods) {
-            BlockEntity current = level.getBlockEntity(i);
-            if (current instanceof ThermalGeneratorBlockEntity tgbe) {
-                tgbe.GENERATING_SPEED = Config.GENERATING_SPEED.get();
-            }
-        }
 
         _radiationManager.MELTDOWN_TEMP = Config.MELTDOWN_TEMPERATURE.get();
         _radiationManager.MAX_TEMP = Config.MAX_TEMPERATURE.get();

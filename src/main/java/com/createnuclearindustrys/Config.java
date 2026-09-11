@@ -10,7 +10,7 @@ public class Config {
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
     static final ModConfigSpec SPEC;
 
-    public static final ModConfigSpec.IntValue GENERATING_SPEED;
+
     public static final ModConfigSpec.IntValue MELTDOWN_TEMPERATURE;
     public static final ModConfigSpec.IntValue MAX_TEMPERATURE;
 
@@ -28,12 +28,8 @@ public class Config {
     public static final ModConfigSpec.IntValue ADVANCEMENT_TRIGGER_TICKS;
     public static final ModConfigSpec.BooleanValue ADVANCEMENT_TRIGGER_PRIORITY;
 
-
     static {
         BUILDER.push("Balance");
-        GENERATING_SPEED = BUILDER
-                .comment("Speed of thermal generators. It also change the total SU")
-                .defineInRange("generating_speed", 24, 0, Integer.MAX_VALUE);
         MELTDOWN_TEMPERATURE = BUILDER
                 .comment("The temperature at which the reactor explodes")
                 .defineInRange("meltdown_temperature", 1000, 0, Integer.MAX_VALUE);
