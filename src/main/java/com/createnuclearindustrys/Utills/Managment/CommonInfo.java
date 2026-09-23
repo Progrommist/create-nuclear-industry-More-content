@@ -45,4 +45,5 @@ public class CommonInfo {
                 || b == Blocks.DIRT || b == Blocks.GRASS_BLOCK) return 0.25f;
         return 0.1f;
     }
+
 }

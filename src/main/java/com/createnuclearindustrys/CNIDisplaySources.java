@@ -1,9 +1,12 @@
 package com.createnuclearindustrys;
 
+import com.createnuclearindustrys.Blocks.BoilerBlock.BoilerSteamDisplaySource;
+import com.createnuclearindustrys.Blocks.BoilerBlock.BoilerWaterDisplaySource;
 import com.createnuclearindustrys.Blocks.HeatGaugeBlock.HeatGaugeDisplaySource;
 import com.createnuclearindustrys.Blocks.ReactimeterBlock.ReactimeterDisplaySource;
-import com.createnuclearindustrys.Blocks.ThermalGeneratorBlock.ThermalGeneratorSteamDisplaySource;
-import com.createnuclearindustrys.Blocks.ThermalGeneratorBlock.ThermalGeneratorWaterDisplaySource;
+import com.createnuclearindustrys.Blocks.SteamTurbine.SteamTurbineInputSteamDisplaySource;
+import com.createnuclearindustrys.Blocks.SteamTurbine.SteamTurbineOutputSteamDisplaySource;
+import com.createnuclearindustrys.Blocks.SteamTurbine.SteamTurbineSummarySteamDisplaySource;
 import com.simibubi.create.api.behaviour.display.DisplaySource;
 import com.simibubi.create.api.registry.CreateRegistries;
 import net.neoforged.bus.api.IEventBus;
@@ -17,11 +20,16 @@ public class CNIDisplaySources {
     public static final DeferredHolder<DisplaySource, HeatGaugeDisplaySource> HEAT_GAUGE_DISPLAY_SOURCE =
             DISPLAY_SOURCES.register("heat_gauge_temperature", HeatGaugeDisplaySource::new);
 
-    public static final DeferredHolder<DisplaySource, ThermalGeneratorWaterDisplaySource> THERMAL_GENERATOR_WATER_DISPLAY_SOURCE =
-            DISPLAY_SOURCES.register("thermal_generator_water", ThermalGeneratorWaterDisplaySource::new);
-
-    public static final DeferredHolder<DisplaySource, ThermalGeneratorSteamDisplaySource> THERMAL_GENERATOR_STEAM_DISPLAY_SOURCE =
-            DISPLAY_SOURCES.register("thermal_generator_steam", ThermalGeneratorSteamDisplaySource::new);
+    public static final DeferredHolder<DisplaySource, SteamTurbineSummarySteamDisplaySource> STEAM_TURBINE_SUMMARY_DISPLAY_SOURCE =
+            DISPLAY_SOURCES.register("steam_turbine_summary", SteamTurbineSummarySteamDisplaySource::new);
+    public static final DeferredHolder<DisplaySource, SteamTurbineInputSteamDisplaySource> STEAM_TURBINE_INPUT_DISPLAY_SOURCE =
+            DISPLAY_SOURCES.register("steam_turbine_input", SteamTurbineInputSteamDisplaySource::new);
+    public static final DeferredHolder<DisplaySource, SteamTurbineOutputSteamDisplaySource> STEAM_TURBINE_OUTPUT_DISPLAY_SOURCE =
+            DISPLAY_SOURCES.register("steam_turbine_output", SteamTurbineOutputSteamDisplaySource::new);
+    public static final DeferredHolder<DisplaySource, BoilerWaterDisplaySource> BOILER_WATER_DISPLAY_SOURCE =
+            DISPLAY_SOURCES.register("boiler_water", BoilerWaterDisplaySource::new);
+    public static final DeferredHolder<DisplaySource, BoilerSteamDisplaySource> BOILER_STEAM_DISPLAY_SOURCE =
+            DISPLAY_SOURCES.register("boiler_steam", BoilerSteamDisplaySource::new);
     public static final DeferredHolder<DisplaySource, ReactimeterDisplaySource> REACTIMETER_DISPLAY_SOURCE =
             DISPLAY_SOURCES.register("reactimeter_reactivity", ReactimeterDisplaySource::new);
 

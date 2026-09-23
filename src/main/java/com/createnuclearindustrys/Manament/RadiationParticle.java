@@ -14,6 +14,8 @@ public class RadiationParticle {
     public final float energy; // 0.0–1.0; used by radiation damage, chain reactions, etc.
     public int ticksLeft;
     public final BlockPos source;
+    /** Set once the particle passes through water, which slows it enough to be absorbed properly. */
+    public boolean moderated = false;
 
     public RadiationParticle(UUID id, Vec3 pos, Vec3 vel, float r, float g, float b, float energy, int ticksLeft, BlockPos source) {
         this.id = id;
@@ -42,11 +44,12 @@ public class RadiationParticle {
         tag.putFloat("energy", energy);
         tag.putInt("ticksLeft", ticksLeft);
         tag.putLong("source", source.asLong());
+        tag.putBoolean("moderated", moderated);
         return tag;
     }
 
     public static RadiationParticle load(CompoundTag tag) {
-        return new RadiationParticle(
+        RadiationParticle p = new RadiationParticle(
             tag.getUUID("id"),
             new Vec3(tag.getDouble("px"), tag.getDouble("py"), tag.getDouble("pz")),
             new Vec3(tag.getDouble("vx"), tag.getDouble("vy"), tag.getDouble("vz")),
@@ -57,5 +60,7 @@ public class RadiationParticle {
             tag.getInt("ticksLeft"),
             BlockPos.of(tag.getLong("source"))
         );
+        p.moderated = tag.getBoolean("moderated");
+        return p;
     }
 }

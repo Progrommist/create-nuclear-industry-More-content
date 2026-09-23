@@ -1,7 +1,9 @@
 package com.createnuclearindustrys;
 
+import com.createnuclearindustrys.Blocks.BoilerBlock.BoilerRenderer;
+import com.createnuclearindustrys.Blocks.HeatSourceBlock.CreativeHeatSourceRenderer;
+import com.createnuclearindustrys.Blocks.SteamTurbine.*;
 import com.createnuclearindustrys.Fluid.SteamFluid.SteamParticle;
-import com.createnuclearindustrys.Blocks.ThermalGeneratorBlock.ThermalGeneratorRenderer;
 import com.simibubi.create.foundation.item.ItemDescription;
 import com.simibubi.create.foundation.item.TooltipModifier;
 import net.createmod.catnip.lang.FontHelper;
@@ -21,12 +23,12 @@ public class ClientModEvents {
         event.enqueueWork(() -> {
             registerTooltip(CNIItems.BORON_CONTROL_ROD_ITEM.get());
             registerTooltip(CNIItems.URANIUM_FUEL_ROD_ITEM.get());
+            registerTooltip(CNIItems.HEAT_GAUGE_ITEM.get());
             registerTooltip(CNIItems.MUTATED_BREAD.get());
             registerTooltip(CNIItems.URANIUM_BREAD.get());
-            registerTooltip(CNIItems.HEAT_GAUGE_ITEM.get());
-            registerTooltip(CNIItems.REACTIMETER_ITEM.get());
             registerTooltip(CNIItems.HEAT_PIPE_ITEM.get());
-            registerTooltip(CNIItems.THERMAL_GENERATOR_ITEM.get());
+            registerTooltip(CNIItems.STEAM_TURBINE_ITEM.get());
+            registerTooltip(CNIItems.BOILER_ITEM.get());
         });
     }
 
@@ -43,7 +45,13 @@ public class ClientModEvents {
     @SubscribeEvent
     public static void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(
-                CNIBlocks.THERMAL_GENERATOR_BLOCK_ENTITY.get(),
-                ThermalGeneratorRenderer::new);
+                CNIBlocks.STEAM_TURBINE_BLOCK_ENTITY.get(),
+                SteamTurbineRenderer::new);
+        event.registerBlockEntityRenderer(
+                CNIBlocks.CREATIVE_HEAT_SOURCE_BLOCK_ENTITY.get(),
+                CreativeHeatSourceRenderer::new);
+        event.registerBlockEntityRenderer(
+                CNIBlocks.BOILER_BLOCK_ENTITY.get(),
+                BoilerRenderer::new);
     }
 }

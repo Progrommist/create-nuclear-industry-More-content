@@ -46,8 +46,11 @@ public class CNICreativeTab {
                         output.accept(CNIItems.HEAT_GAUGE_ITEM.get());
                         output.accept(CNIItems.REACTIMETER_ITEM.get());
                         output.accept(CNIItems.HEAT_PIPE_ITEM.get());
-                        output.accept(CNIItems.THERMAL_GENERATOR_ITEM.get());
                         output.accept(CNIItems.STEAM_BUCKET.get());
+
+                        output.accept(CNIItems.CREATIVE_HEAT_SOURCE_ITEM.get());
+                        output.accept(CNIItems.STEAM_TURBINE_ITEM.get());
+                        output.accept(CNIItems.BOILER_ITEM.get());
                     }).build());
 
     public static void register(IEventBus modEventBus) {

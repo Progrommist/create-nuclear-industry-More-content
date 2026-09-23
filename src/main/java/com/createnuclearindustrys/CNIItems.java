@@ -99,8 +99,12 @@ public class CNIItems {
     public static final DeferredItem<BlockItem> URANIUM_ORE_BLOCK_ITEM =
             ITEMS.registerSimpleBlockItem("uranium_ore_block", CNIBlocks.URANIUM_ORE_BLOCK);
 
-    public static final DeferredItem<BlockItem> THERMAL_GENERATOR_ITEM =
-            ITEMS.registerSimpleBlockItem("thermal_generator", CNIBlocks.THERMAL_GENERATOR);
+    public static final DeferredItem<BlockItem> STEAM_TURBINE_ITEM =
+            ITEMS.registerSimpleBlockItem("steam_turbine", CNIBlocks.STEAM_TURBINE);
+
+    public static final DeferredItem<BlockItem> BOILER_ITEM =
+            ITEMS.registerSimpleBlockItem("boiler", CNIBlocks.BOILER);
+    public static final DeferredItem<BlockItem> CREATIVE_HEAT_SOURCE_ITEM = ITEMS.registerSimpleBlockItem("creative_heat_source", CNIBlocks.CREATIVE_HEAT_SOURCE);
 
 
     // ── Bucket ──────────────────────────────────────────────────────────────

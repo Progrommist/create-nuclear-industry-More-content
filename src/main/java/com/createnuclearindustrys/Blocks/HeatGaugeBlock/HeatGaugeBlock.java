@@ -104,6 +104,18 @@ public class HeatGaugeBlock extends Block implements EntityBlock, HeatNodeBlock,
         return new HeatGaugeBlockEntity(pos, state);
     }
 
+
+    /**
+     * Fires whenever this block appears here by any means — pistons, Create contraptions,
+     * falling blocks, /setblock — so a moved gauge stays on the heat network.
+     */
+    @Override
+    protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean movedByPiston) {
+        super.onPlace(state, level, pos, oldState, movedByPiston);
+        if (oldState.is(this) || !(level instanceof ServerLevel serverLevel)) return;
+        RadiationManager.get(serverLevel).registerMovedNode(serverLevel, pos);
+    }
+
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         if (level.isClientSide()) return InteractionResult.SUCCESS;
@@ -129,7 +141,7 @@ public class HeatGaugeBlock extends Block implements EntityBlock, HeatNodeBlock,
     @Override
     protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
         if (level.getBlockEntity(pos) instanceof HeatGaugeBlockEntity be)
-            return Math.min(15, (int)(be.heat / 1000f * 15));
+            return Math.max(0, Math.min(15, (int)(be.heat / 1000f * 15)));
         return 0;
     }
 

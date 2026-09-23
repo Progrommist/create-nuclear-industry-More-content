@@ -26,8 +26,8 @@ public class HeatGaugeBlockEntity extends BlockEntity implements IHaveGoggleInfo
 
         // Detect if the redstone signal strength (0–15) would change so we only
         // notify neighbors when the value actually crosses a step boundary.
-        int oldSignal = Math.min(15, (int)(heat    / 1000f * 15));
-        int newSignal = Math.min(15, (int)(newHeat / 1000f * 15));
+        int oldSignal = Math.max(0, Math.min(15, (int)(heat    / 1000f * 15)));
+        int newSignal = Math.max(0, Math.min(15, (int)(newHeat / 1000f * 15)));
 
         heat = newHeat;
         setChanged();

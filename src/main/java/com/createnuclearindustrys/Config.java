@@ -3,15 +3,13 @@ package com.createnuclearindustrys;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.common.ModConfigSpec;
-
-// An example config class. This is not required, but it's a good idea to have one to keep your config organized.
-// Demonstrates how to use Neo's config APIs
 public class Config {
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
     static final ModConfigSpec SPEC;
 
 
     public static final ModConfigSpec.IntValue MELTDOWN_TEMPERATURE;
+    public static final ModConfigSpec.IntValue MAX_SU;
     public static final ModConfigSpec.IntValue MAX_TEMPERATURE;
 
     public static final ModConfigSpec.BooleanValue CONSOLE_DEBUG;
@@ -30,6 +28,9 @@ public class Config {
 
     static {
         BUILDER.push("Balance");
+        MAX_SU = BUILDER
+                .comment("The maximum SU that a steam engine can output")
+                .defineInRange("max_su", 49152, 0, Integer.MAX_VALUE);
         MELTDOWN_TEMPERATURE = BUILDER
                 .comment("The temperature at which the reactor explodes")
                 .defineInRange("meltdown_temperature", 1000, 0, Integer.MAX_VALUE);

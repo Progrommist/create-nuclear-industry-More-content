@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SPS",
+    "SFS",
+    "SHS"
+  ],
+  "key": {
+    "S": {"item": "create:iron_sheet"},
+    "P": {"item": "create:fluid_pipe"},
+    "F": {"item": "create:fluid_tank"},
+    "H": {"item": "createnuclearindustrys:heat_pipe"}
+  },
+  "result": {
+    "id": "createnuclearindustrys:boiler",
+    "count": 1
+  }
+}

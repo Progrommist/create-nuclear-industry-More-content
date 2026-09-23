@@ -1,10 +1,11 @@
 package com.createnuclearindustrys.Manament;
 
-import com.createnuclearindustrys.Blocks.HeatGaugeBlock.HeatGaugeBlock;
-import com.createnuclearindustrys.Blocks.HeatGaugeBlock.HeatGaugeBlockEntity;
+import com.createnuclearindustrys.Blocks.HeatSourceBlock.CreativeHeatSourceBlock;
+import com.createnuclearindustrys.Blocks.HeatSourceBlock.CreativeHeatSourceBlockEntity;
+import com.createnuclearindustrys.Blocks.BoilerBlock.BoilerBlock;
+import com.createnuclearindustrys.Blocks.BoilerBlock.BoilerBlockEntity;
 import com.createnuclearindustrys.Blocks.HeatPipeBlock.HeatPipeBlock;
-import com.createnuclearindustrys.Blocks.ThermalGeneratorBlock.ThermalGeneratorBlock;
-import com.createnuclearindustrys.Blocks.ThermalGeneratorBlock.ThermalGeneratorBlockEntity;
+import com.createnuclearindustrys.Blocks.SteamTurbine.SteamTurbineBlockEntity;
 import com.createnuclearindustrys.Blocks.UraniumFuelRod.UraniumFuelRod;
 import com.createnuclearindustrys.CNITriggers;
 import com.createnuclearindustrys.CreateNuclearIndustrys;
@@ -15,6 +16,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 import java.util.*;
 import static com.createnuclearindustrys.Utills.Managment.CommonInfo.*;
@@ -61,24 +63,39 @@ public class RadiationTasks {
         }
         for (BlockPos pos : gone) _manager.removeRod(pos, level);
     }
-    public static void heat_dissipation(Map<BlockPos, Float> rodHeat) {
-        /** heat dissipation */
+    public static void heat_dissipation(Map<BlockPos, Float> rodHeat, RadiationManager _manager, ServerLevel level) {
+        // Dissipate heat toward ambient; uranium rods melt at 1000°C, everything else just caps
+        List<BlockPos> melted = new ArrayList<>();
         for (Map.Entry<BlockPos, Float> entry : rodHeat.entrySet()) {
-            entry.setValue(entry.getValue() * 0.999f);
+            float heat = entry.getValue();
+            if (heat >= _manager.MELTDOWN_TEMP) {
+                if (level.getBlockState(entry.getKey()).getBlock() instanceof UraniumFuelRod)
+                    melted.add(entry.getKey());
+            } else {
+                float ambient = _manager.getAmbientHeat(level, entry.getKey());
+                float cooling = isWaterlogged(level.getBlockState(entry.getKey()))
+                        ? _manager.COOLING_IN_WATER : _manager.COOLING_IN_AIR;
+                entry.setValue(ambient + (heat - ambient) * cooling);
+            }
         }
     }
-    public static void thermal_generator_work(ServerLevel level, Map<BlockPos, Float> rodHeat) {
-        // Thermal generators actively drain heat from the network (heat → rotation + steam).
-        // If the generator has no water it can't convert heat, so it neither cools the network
-        // nor produces any rotation — making water supply act as the critical control variable.
-        //
+    public static void creative_heat_source_work(ServerLevel level, Map<BlockPos, Float> rodHeat) {
         for (Map.Entry<BlockPos, Float> entry : rodHeat.entrySet()) {
-            if (!(level.getBlockState(entry.getKey()).getBlock() instanceof ThermalGeneratorBlock)) continue;
+            if (level.getBlockState(entry.getKey()).getBlock() instanceof CreativeHeatSourceBlock
+                    && level.getBlockEntity(entry.getKey()) instanceof CreativeHeatSourceBlockEntity cbe) {
+                entry.setValue((float) cbe.targetTemperature.value);
+            }
+        }
+    }
+    public static void boiler_work(ServerLevel level, Map<BlockPos, Float> rodHeat) {
+        // Boilers drain heat while converting water to steam (no kinetic output) — only while
+        // actually boiling, so a boiler whose steam has nowhere to go stops cooling the reactor
+        for (Map.Entry<BlockPos, Float> entry : rodHeat.entrySet()) {
+            if (!(level.getBlockState(entry.getKey()).getBlock() instanceof BoilerBlock)) continue;
             float heat = entry.getValue();
-            if (heat <= 10f) continue;
-            // Gate: only drain heat when the generator is actually converting water to steam
-            if (!(level.getBlockEntity(entry.getKey()) instanceof ThermalGeneratorBlockEntity tbe)
-                    || !tbe.hasWater() || tbe.fullSteam()) continue;
+            if (heat < 100f) continue;
+            if (!(level.getBlockEntity(entry.getKey()) instanceof BoilerBlockEntity bbe)
+                    || !bbe.isBoiling()) continue;
             entry.setValue(Math.max(0f, heat - heat * 0.005f));
         }
     }
@@ -86,7 +103,6 @@ public class RadiationTasks {
     public static void uranium_rods_conduction(ServerLevel level, Set<BlockPos> rods, Map<BlockPos, Float> rodHeat) {
         // Vertical conduction between stacked uranium rods
         for (BlockPos pos : new ArrayList<>(rods)) {
-            if (!(level.getBlockState(pos).getBlock() instanceof UraniumFuelRod)) continue;
             BlockPos above = pos.above();
             if (!rods.contains(above)) continue;
             float heatHere  = rodHeat.getOrDefault(pos, 0f);
@@ -96,6 +112,7 @@ public class RadiationTasks {
             rodHeat.put(pos, heatHere - transfer);
             rodHeat.put(above.immutable(), heatAbove + transfer);
         }
+
     }
 
     public static void heat_pipe_conduction(ServerLevel level, Set<BlockPos> rods, Map<BlockPos, Float> rodHeat) {
@@ -134,13 +151,18 @@ public class RadiationTasks {
         for (Map.Entry<BlockPos, Float> i : rodHeat.entrySet()) {
             CNITriggers.TEMPERATURE_TRIGGER.get().trigger(CommonInfo.findClosestPlayer(i.getKey().getCenter(), level), i.getValue());
 
-            if (level.getBlockEntity(i.getKey()) instanceof ThermalGeneratorBlockEntity tgbe) {
-                totalSU += tgbe.calculateAddedStressCapacity() * tgbe.BASE_SPEED;
+            if (level.getBlockEntity(i.getKey()) instanceof SteamTurbineBlockEntity tgbe) {
+                totalSU += tgbe.calculateAddedStressCapacity() / tgbe.SPEED;
             }
         }
         for (ServerPlayer i : level.players()) {
             CNITriggers.THERMAL_GENERATOR_ENERGY_TRIGGER.get().trigger(i, totalSU);
         }
-        CreateNuclearIndustrys.LOGGER.info(String.valueOf(totalSU));
+        //CreateNuclearIndustrys.LOGGER.info(String.valueOf(totalSU));
+    }
+
+    static boolean isWaterlogged(BlockState state) {
+        return state.hasProperty(BlockStateProperties.WATERLOGGED)
+                && state.getValue(BlockStateProperties.WATERLOGGED);
     }
 }

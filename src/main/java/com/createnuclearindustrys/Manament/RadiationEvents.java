@@ -1,19 +1,12 @@
 package com.createnuclearindustrys.Manament;
 
 import com.createnuclearindustrys.CreateNuclearIndustrys;
-import com.createnuclearindustrys.Blocks.HeatGaugeBlock.HeatGaugeBlock;
-import com.createnuclearindustrys.Blocks.HeatPipeBlock.HeatPipeBlock;
-import com.createnuclearindustrys.Blocks.ThermalGeneratorBlock.ThermalGeneratorBlock;
-import com.createnuclearindustrys.Blocks.UraniumFuelRod.UraniumFuelRod;
 import com.createnuclearindustrys.Utills.Interfaces.Heat_syncer;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.config.ModConfigEvent;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.tick.LevelTickEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
@@ -34,8 +27,6 @@ public class RadiationEvents {
         if (!(event.getLevel() instanceof ServerLevel serverLevel)) return;
         RadiationManager manager = RadiationManager.get(serverLevel);
         manager.tick(serverLevel);
-
-        //if (this.isConfigReloaded) manager.initScheduler();
 
         List<RadiationParticle> born = manager.drainPendingBroadcast();
         if (born.isEmpty()) return;

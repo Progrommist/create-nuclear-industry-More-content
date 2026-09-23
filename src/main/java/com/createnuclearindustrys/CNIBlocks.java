@@ -1,15 +1,19 @@
 package com.createnuclearindustrys;
 
+import com.createnuclearindustrys.Blocks.BoilerBlock.BoilerBlock;
+import com.createnuclearindustrys.Blocks.BoilerBlock.BoilerBlockEntity;
 import com.createnuclearindustrys.Blocks.BoronControlRod.BoronControlRod;
 import com.createnuclearindustrys.Blocks.HeatGaugeBlock.HeatGaugeBlock;
 import com.createnuclearindustrys.Blocks.HeatGaugeBlock.HeatGaugeBlockEntity;
 import com.createnuclearindustrys.Blocks.HeatPipeBlock.HeatPipeBlock;
+import com.createnuclearindustrys.Blocks.HeatSourceBlock.CreativeHeatSourceBlock;
+import com.createnuclearindustrys.Blocks.HeatSourceBlock.CreativeHeatSourceBlockEntity;
 import com.createnuclearindustrys.Blocks.ReactimeterBlock.ReactimeterBlock;
 import com.createnuclearindustrys.Blocks.ReactimeterBlock.ReactimeterBlockEntity;
+import com.createnuclearindustrys.Blocks.SteamTurbine.SteamTurbineBlock;
+import com.createnuclearindustrys.Blocks.SteamTurbine.SteamTurbineBlockEntity;
 import com.createnuclearindustrys.Blocks.UraniumFuelRod.UraniumFuelRodEntity;
 import com.createnuclearindustrys.Fluid.SteamFluid.SteamFluidBlock;
-import com.createnuclearindustrys.Blocks.ThermalGeneratorBlock.ThermalGeneratorBlock;
-import com.createnuclearindustrys.Blocks.ThermalGeneratorBlock.ThermalGeneratorBlockEntity;
 import com.createnuclearindustrys.Blocks.UraniumFuelRod.UraniumFuelRod;
 import com.createnuclearindustrys.Blocks.UraniumOreBlock.UraniumOreBlock;
 import com.createnuclearindustrys.Blocks.ZincRodBlock.ZincRod;
@@ -60,10 +64,16 @@ public class CNIBlocks {
             UraniumOreBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.STONE)
                     .strength(3.0f, 3.0f).requiresCorrectToolForDrops().randomTicks());
 
-    public static final DeferredBlock<ThermalGeneratorBlock> THERMAL_GENERATOR = BLOCKS.registerBlock("thermal_generator",
-            ThermalGeneratorBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY)
-                    .strength(3.0f, 8.0f).requiresCorrectToolForDrops().noOcclusion());
+    public static final DeferredBlock<SteamTurbineBlock> STEAM_TURBINE = BLOCKS.registerBlock("steam_turbine",
+            SteamTurbineBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).strength(3.0f, 8.0f).requiresCorrectToolForDrops().noOcclusion());
 
+    public static final DeferredBlock<BoilerBlock> BOILER = BLOCKS.registerBlock("boiler",
+            BoilerBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).strength(3.0f, 8.0f).requiresCorrectToolForDrops());
+    public static final DeferredBlock<CreativeHeatSourceBlock> CREATIVE_HEAT_SOURCE = BLOCKS.registerBlock("creative_heat_source",
+            CreativeHeatSourceBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).strength(-1.0f, 3600000.0f).requiresCorrectToolForDrops());
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CreativeHeatSourceBlockEntity>> CREATIVE_HEAT_SOURCE_BLOCK_ENTITY =
+            BLOCK_ENTITY_TYPES.register("creative_heat_source", () -> BlockEntityType.Builder.of(
+                    CreativeHeatSourceBlockEntity::new, CREATIVE_HEAT_SOURCE.get()).build(null));
     public static final DeferredBlock<LiquidBlock> STEAM_BLOCK = BLOCKS.registerBlock("steam_fluid",
             p -> new SteamFluidBlock(CNIFluids.STEAM_STILL.get(), p),
             BlockBehaviour.Properties.of().noCollission().strength(100f).noLootTable().replaceable());
@@ -81,9 +91,13 @@ public class CNIBlocks {
             BLOCK_ENTITY_TYPES.register("reactimeter", () -> BlockEntityType.Builder.of(
                     ReactimeterBlockEntity::new, REACTIMETER.get()).build(null));
 
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ThermalGeneratorBlockEntity>> THERMAL_GENERATOR_BLOCK_ENTITY =
-            BLOCK_ENTITY_TYPES.register("thermal_generator", () -> BlockEntityType.Builder.of(
-                    ThermalGeneratorBlockEntity::new, THERMAL_GENERATOR.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SteamTurbineBlockEntity>> STEAM_TURBINE_BLOCK_ENTITY =
+            BLOCK_ENTITY_TYPES.register("steam_turbine", () -> BlockEntityType.Builder.of(
+                    SteamTurbineBlockEntity::new, STEAM_TURBINE.get()).build(null));
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BoilerBlockEntity>> BOILER_BLOCK_ENTITY =
+            BLOCK_ENTITY_TYPES.register("boiler", () -> BlockEntityType.Builder.of(
+                    BoilerBlockEntity::new, BOILER.get()).build(null));
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<UraniumFuelRodEntity>> URANIUM_FUEL_ROD_ENTITY =
             BLOCK_ENTITY_TYPES.register("uranium_fuel_rod", () -> BlockEntityType.Builder.of(
                     UraniumFuelRodEntity::new, URANIUM_FUEL_ROD.get()).build(null));

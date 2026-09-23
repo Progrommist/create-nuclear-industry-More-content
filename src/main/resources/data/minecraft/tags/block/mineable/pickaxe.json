@@ -6,6 +6,7 @@
     "createnuclearindustrys:boron_control_rod",
     "createnuclearindustrys:uranium_fuel_rod",
     "createnuclearindustrys:heat_pipe",
-    "createnuclearindustrys:thermal_generator"
+    "createnuclearindustrys:boiler",
+    "createnuclearindustrys:steam_turbine"
   ]
 }

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BAB",
+    "PCP",
+    "BMB"
+  ],
+  "key": {
+    "B": {"item": "create:brass_sheet"},
+    "A": {"item": "create:shaft"},
+    "P": {"item": "create:propeller"},
+    "C": {"item": "create:brass_casing"},
+    "M": {"item": "create:precision_mechanism"}
+  },
+  "result": {
+    "id": "createnuclearindustrys:steam_turbine",
+    "count": 1
+  }
+}

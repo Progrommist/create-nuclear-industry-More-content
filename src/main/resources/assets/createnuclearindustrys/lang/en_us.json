@@ -5,10 +5,12 @@
   "block.createnuclearindustrys.uranium_fuel_rod": "Uranium Fuel Rod",
   "block.createnuclearindustrys.boron_control_rod": "Boron Control Rod",
   "block.createnuclearindustrys.heat_gauge": "Heat Gauge",
-  "block.createnuclearindustrys.reactimeter": "Reactimeter",
   "block.createnuclearindustrys.heat_pipe": "Heat Pipe",
   "block.createnuclearindustrys.thermal_generator": "Thermal Generator",
   "block.createnuclearindustrys.zinc_rod": "Zinc rod",
+  "block.createnuclearindustrys.steam_turbine": "Steam Turbine",
+  "block.createnuclearindustrys.boiler": "Boiler",
+  "block.createnuclearindustrys.creative_heat_source": "Creative Heat Source",
 
   "item.createnuclearindustrys.uranium_ore": "Uranium Ore",
   "item.createnuclearindustrys.boron_ore": "Boron Ore",
@@ -47,13 +49,13 @@
 
   "block.createnuclearindustrys.heat_pipe.tooltip.summary": "Conducts _thermal energy_ between heat network components.",
   "block.createnuclearindustrys.heat_pipe.tooltip.condition1": "When Connected to Heat Sources",
-  "block.createnuclearindustrys.heat_pipe.tooltip.behaviour1": "Gradually _equalises heat_ across all connected nodes. Route energy from a _reactor_ to a _Thermal Generator_ using pipes.",
+  "block.createnuclearindustrys.heat_pipe.tooltip.behaviour1": "Gradually _equalises heat_ across all connected nodes. Route heat from a _reactor_ to a _Boiler_ using pipes.",
 
-  "block.createnuclearindustrys.thermal_generator.tooltip.summary": "Converts _heat energy_ into _rotational force_.",
-  "block.createnuclearindustrys.thermal_generator.tooltip.condition1": "When Connected to Heat Network",
-  "block.createnuclearindustrys.thermal_generator.tooltip.behaviour1": "Outputs a spinning _shaft_ once the network temperature exceeds 10°. Speed and _stress capacity_ scale with heat level.",
-  "block.createnuclearindustrys.thermal_generator.tooltip.condition2": "At Peak Temperature",
-  "block.createnuclearindustrys.thermal_generator.tooltip.behaviour2": "Keep the reactor fuelled and _coolant flowing_ to sustain output.",
+  "block.createnuclearindustrys.boiler.tooltip.summary": "Boils piped-in water into _steam_ using _reactor heat_.",
+  "block.createnuclearindustrys.boiler.tooltip.condition1": "When Hotter Than 100°C",
+  "block.createnuclearindustrys.boiler.tooltip.behaviour1": "Boils _1 mB of water_ per tick for every _100°C_ of heat, turning it into _10× as much steam_. Pipe the steam into a _Steam Turbine_.",
+  "block.createnuclearindustrys.boiler.tooltip.condition2": "While Boiling",
+  "block.createnuclearindustrys.boiler.tooltip.behaviour2": "Draws _heat_ out of the connected network, _cooling the reactor_. With no water it stops boiling and stops cooling.",
 
   "item.createnuclearindustrys.mutated_bread.tooltip.summary": "This is mutated bread",
   "item.createnuclearindustrys.mutated_bread.tooltip.condition1": "- So we're fine. As long as nobody teleports any bread.",
@@ -73,6 +75,13 @@
   "createnuclearindustrys.display_source.heat_gauge_temperature": "Heat Gauge Temperature",
   "createnuclearindustrys.display_source.thermal_generator_water": "Water amount",
   "createnuclearindustrys.display_source.thermal_generator_steam": "Steam amount",
+  "block.createnuclearindustrys.steam_turbine.tooltip.summary": "Converts _steam throughput_ into _rotational force_.",
+  "block.createnuclearindustrys.steam_turbine.tooltip.condition1": "When Steam Flows Through",
+  "block.createnuclearindustrys.steam_turbine.tooltip.behaviour1": "Accepts steam into its input side and expels _slightly less steam_ from its output. Always spins at _16 RPM_; the more steam flowing through, the greater the _stress capacity_ — up to _10,000 SU_.",
+  "block.createnuclearindustrys.steam_turbine.tooltip.condition2": "Maximising Output",
+  "block.createnuclearindustrys.steam_turbine.tooltip.behaviour2": "Pump steam in _and_ drain it out simultaneously for maximum throughput and power.",
+
+  "createnuclearindustrys.display_source.heat_gauge_temperature": "Heat Gauge Temperature",
 
   "effect.createnuclearindustrys.radiation_sickness": "Radiation Sickness",
   "effect.createnuclearindustrys.radiation_protection": "Radiation Protection",

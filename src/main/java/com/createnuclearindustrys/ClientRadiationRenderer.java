@@ -61,6 +61,8 @@ public class ClientRadiationRenderer {
 
     public static void handleBirth(RadiationBirthPacket pkt) {
         particles.put(pkt.id(), new ClientParticle(pkt));
+        if (Minecraft.getInstance().level != null)
+            CherenkovGlowRenderer.onEmission(pkt.sourcePos(), Minecraft.getInstance().level.getGameTime());
     }
 
     // ── Client tick: step physics ─────────────────────────────────────────────
