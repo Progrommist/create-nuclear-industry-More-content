@@ -4,8 +4,6 @@ import com.createnuclearindustrys.Blocks.BoilerBlock.BoilerSteamDisplaySource;
 import com.createnuclearindustrys.Blocks.BoilerBlock.BoilerWaterDisplaySource;
 import com.createnuclearindustrys.Blocks.HeatGaugeBlock.HeatGaugeDisplaySource;
 import com.createnuclearindustrys.Blocks.ReactimeterBlock.ReactimeterDisplaySource;
-import com.createnuclearindustrys.Blocks.SteamTurbine.SteamTurbineInputSteamDisplaySource;
-import com.createnuclearindustrys.Blocks.SteamTurbine.SteamTurbineOutputSteamDisplaySource;
 import com.createnuclearindustrys.Blocks.SteamTurbine.SteamTurbineSummarySteamDisplaySource;
 import com.simibubi.create.api.behaviour.display.DisplaySource;
 import com.simibubi.create.api.registry.CreateRegistries;
@@ -22,10 +20,6 @@ public class CNIDisplaySources {
 
     public static final DeferredHolder<DisplaySource, SteamTurbineSummarySteamDisplaySource> STEAM_TURBINE_SUMMARY_DISPLAY_SOURCE =
             DISPLAY_SOURCES.register("steam_turbine_summary", SteamTurbineSummarySteamDisplaySource::new);
-    public static final DeferredHolder<DisplaySource, SteamTurbineInputSteamDisplaySource> STEAM_TURBINE_INPUT_DISPLAY_SOURCE =
-            DISPLAY_SOURCES.register("steam_turbine_input", SteamTurbineInputSteamDisplaySource::new);
-    public static final DeferredHolder<DisplaySource, SteamTurbineOutputSteamDisplaySource> STEAM_TURBINE_OUTPUT_DISPLAY_SOURCE =
-            DISPLAY_SOURCES.register("steam_turbine_output", SteamTurbineOutputSteamDisplaySource::new);
     public static final DeferredHolder<DisplaySource, BoilerWaterDisplaySource> BOILER_WATER_DISPLAY_SOURCE =
             DISPLAY_SOURCES.register("boiler_water", BoilerWaterDisplaySource::new);
     public static final DeferredHolder<DisplaySource, BoilerSteamDisplaySource> BOILER_STEAM_DISPLAY_SOURCE =

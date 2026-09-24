@@ -52,8 +52,6 @@ public class CreateNuclearIndustrys {
             DisplaySource.BY_BLOCK_ENTITY.register(
                     CNIBlocks.STEAM_TURBINE_BLOCK_ENTITY.get(),
                     List.of(
-                            CNIDisplaySources.STEAM_TURBINE_INPUT_DISPLAY_SOURCE.get(),
-                            CNIDisplaySources.STEAM_TURBINE_OUTPUT_DISPLAY_SOURCE.get(),
                             CNIDisplaySources.STEAM_TURBINE_SUMMARY_DISPLAY_SOURCE.get()
                     )
             );
