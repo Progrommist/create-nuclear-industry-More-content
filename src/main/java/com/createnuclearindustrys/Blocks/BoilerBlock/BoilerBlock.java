@@ -1,11 +1,9 @@
 package com.createnuclearindustrys.Blocks.BoilerBlock;
 
-import com.createnuclearindustrys.Blocks.HeatGaugeBlock.HeatGaugeBlockEntity;
 import com.createnuclearindustrys.CNIBlocks;
-import com.createnuclearindustrys.CreateNuclearIndustrys;
-import com.createnuclearindustrys.Manament.RadiationManager;
-import com.createnuclearindustrys.Utills.Interfaces.HeatNodeBlock;
-import com.createnuclearindustrys.Utills.Interfaces.Heat_syncer;
+import com.createnuclearindustrys.Managment.RadiationManager;
+import com.createnuclearindustrys.Utils.Interfaces.HeatNodeBlock;
+import com.createnuclearindustrys.Utils.Interfaces.Heat_syncer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;

@@ -5,6 +5,8 @@
     "createnuclearindustrys:heat_gauge",
     "createnuclearindustrys:boron_control_rod",
     "createnuclearindustrys:uranium_fuel_rod",
+    "createnuclearindustrys:plutonium_fuel_rod",
+    "createnuclearindustrys:spent_fuel_rod",
     "createnuclearindustrys:heat_pipe",
     "createnuclearindustrys:boiler",
     "createnuclearindustrys:steam_turbine"

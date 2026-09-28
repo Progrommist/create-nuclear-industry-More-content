@@ -1,0 +1,26 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "createnuclearindustrys:enriched_plutonium_powder"
+    },
+    {
+      "item": "createnuclearindustrys:enriched_uranium_powder"
+    },
+    {
+      "item": "createnuclearindustrys:enriched_uranium_powder"
+    },
+    {
+      "item": "createnuclearindustrys:enriched_uranium_powder"
+    },
+    {
+      "item": "createnuclearindustrys:enriched_uranium_powder"
+    }
+  ],
+  "results": [
+    {
+      "count": 5,
+      "id": "createnuclearindustrys:plutonium_pills"
+    }
+  ]
+}

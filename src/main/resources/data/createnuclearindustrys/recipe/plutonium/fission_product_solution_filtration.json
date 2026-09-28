@@ -1,0 +1,27 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "minecraft:bone_meal"
+    },
+    {
+      "type": "neoforge:single",
+      "amount": 200,
+      "fluid": "createnuclearindustrys:fission_product_solution"
+    }
+  ],
+  "results": [
+    {
+      "chance": 0.7,
+      "id": "createnuclearindustrys:enriched_uranium_powder"
+    },
+    {
+      "chance": 0.2,
+      "id": "createnuclearindustrys:enriched_plutonium_powder"
+    },
+    {
+      "chance": 0.1,
+      "id": "createnuclearindustrys:radioactive_waste"
+    }
+  ]
+}

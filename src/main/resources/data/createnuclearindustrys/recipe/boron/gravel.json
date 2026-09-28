@@ -16,7 +16,7 @@
       "id": "minecraft:iron_nugget"
     },
     {
-      "chance": 0.01,
+      "chance": 0.005,
       "id": "createnuclearindustrys:boron_ore"
     }
   ]

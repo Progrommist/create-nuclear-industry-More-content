@@ -1,7 +1,9 @@
 package com.createnuclearindustrys;
 
 import com.createnuclearindustrys.Blocks.BoronControlRod.BoronControlRod;
+import com.createnuclearindustrys.Blocks.PlutoniumFuelRod.PlutoniumFuelRod;
 import com.createnuclearindustrys.Blocks.UraniumFuelRod.UraniumFuelRod;
+import com.createnuclearindustrys.Utils.Interfaces.Emitted.FuelRodBlock;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -134,7 +136,8 @@ public class CherenkovGlowRenderer {
             }
 
             BlockState state = level.getBlockState(pos);
-            if (!(state.getBlock() instanceof UraniumFuelRod) || !state.getValue(UraniumFuelRod.WATERLOGGED)) continue;
+
+            if (!(state.getBlock() instanceof FuelRodBlock) || !state.getValue(FuelRodBlock.WATERLOGGED)) continue;
 
             Vec3 center = Vec3.atCenterOf(pos);
             if (center.distanceToSqr(cam) > MAX_DISTANCE * MAX_DISTANCE) continue;
@@ -149,7 +152,7 @@ public class CherenkovGlowRenderer {
             seen += (target - seen) * 0.25f;
             visibility.put(pos, seen);
 
-            float heat = state.getValue(UraniumFuelRod.HEAT_LEVEL) / 15f;
+            float heat = state.getValue(FuelRodBlock.HEAT_LEVEL) / 15f;
             // A slow shimmer, offset per rod so a reactor doesn't pulse in unison
             float shimmer = 0.92f + 0.08f * (float) Math.sin(time * 0.15f + (pos.hashCode() & 255));
             float intensity = (MIN_INTENSITY + (1f - MIN_INTENSITY) * heat) * seen * shimmer;
@@ -220,7 +223,7 @@ public class CherenkovGlowRenderer {
                 continue;
             }
             Block blocker = level.getBlockState(hit.getBlockPos()).getBlock();
-            if (blocker instanceof UraniumFuelRod || blocker instanceof BoronControlRod) visible++;
+            if (blocker instanceof UraniumFuelRod || blocker instanceof BoronControlRod || blocker instanceof PlutoniumFuelRod) visible++;
         }
         return visible / (float) offsets.length;
     }

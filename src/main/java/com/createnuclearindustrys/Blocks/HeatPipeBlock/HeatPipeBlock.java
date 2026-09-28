@@ -1,7 +1,7 @@
 package com.createnuclearindustrys.Blocks.HeatPipeBlock;
 
-import com.createnuclearindustrys.Manament.RadiationManager;
-import com.createnuclearindustrys.Utills.Interfaces.HeatNodeBlock;
+import com.createnuclearindustrys.Managment.RadiationManager;
+import com.createnuclearindustrys.Utils.Interfaces.HeatNodeBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;

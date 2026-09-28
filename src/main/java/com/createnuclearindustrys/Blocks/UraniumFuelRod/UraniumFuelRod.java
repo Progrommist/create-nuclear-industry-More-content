@@ -1,8 +1,9 @@
 package com.createnuclearindustrys.Blocks.UraniumFuelRod;
 
-import com.createnuclearindustrys.Manament.RadiationManager;
-import com.createnuclearindustrys.Utills.Interfaces.HeatNodeBlock;
-import com.createnuclearindustrys.Utills.Interfaces.Heat_syncer;
+import com.createnuclearindustrys.Managment.RadiationManager;
+import com.createnuclearindustrys.Utils.Interfaces.Emitted.FuelRodBlock;
+import com.createnuclearindustrys.Utils.Interfaces.HeatNodeBlock;
+import com.createnuclearindustrys.Utils.Interfaces.Heat_syncer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -21,23 +22,17 @@ import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.neoforged.neoforge.fluids.FluidStack;
 
 import javax.annotation.Nullable;
 import java.util.Map;
 
-public class UraniumFuelRod extends Block implements EntityBlock, HeatNodeBlock, Heat_syncer, SimpleWaterloggedBlock {
-    public static final IntegerProperty HEAT_LEVEL = IntegerProperty.create("heat_level", 0, 15);
+public class UraniumFuelRod extends Block implements EntityBlock, HeatNodeBlock, Heat_syncer, SimpleWaterloggedBlock, FuelRodBlock {
     private static final VoxelShape SHAPE = Block.box(4, 0, 4, 12, 16, 12);
-    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
     public UraniumFuelRod(Properties properties) {
         super(properties);

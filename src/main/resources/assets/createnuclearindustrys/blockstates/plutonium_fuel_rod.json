@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "heat_level=0":  {"model": "createnuclearindustrys:block/plutonium_fuel_rod"},
+    "heat_level=1":  {"model": "createnuclearindustrys:block/plutonium_fuel_rod"},
+    "heat_level=2":  {"model": "createnuclearindustrys:block/plutonium_fuel_rod"},
+    "heat_level=3":  {"model": "createnuclearindustrys:block/plutonium_fuel_rod"},
+    "heat_level=4":  {"model": "createnuclearindustrys:block/plutonium_fuel_rod"},
+    "heat_level=5":  {"model": "createnuclearindustrys:block/plutonium_fuel_rod"},
+    "heat_level=6":  {"model": "createnuclearindustrys:block/plutonium_fuel_rod"},
+    "heat_level=7":  {"model": "createnuclearindustrys:block/plutonium_fuel_rod"},
+    "heat_level=8":  {"model": "createnuclearindustrys:block/plutonium_fuel_rod"},
+    "heat_level=9":  {"model": "createnuclearindustrys:block/plutonium_fuel_rod"},
+    "heat_level=10": {"model": "createnuclearindustrys:block/plutonium_fuel_rod"},
+    "heat_level=11": {"model": "createnuclearindustrys:block/plutonium_fuel_rod"},
+    "heat_level=12": {"model": "createnuclearindustrys:block/plutonium_fuel_rod"},
+    "heat_level=13": {"model": "createnuclearindustrys:block/plutonium_fuel_rod"},
+    "heat_level=14": {"model": "createnuclearindustrys:block/plutonium_fuel_rod"},
+    "heat_level=15": {"model": "createnuclearindustrys:block/plutonium_fuel_rod"}
+  }
+}

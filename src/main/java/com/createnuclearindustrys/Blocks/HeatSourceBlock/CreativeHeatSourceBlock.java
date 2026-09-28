@@ -1,7 +1,7 @@
 package com.createnuclearindustrys.Blocks.HeatSourceBlock;
 
 import com.createnuclearindustrys.CNIBlocks;
-import com.createnuclearindustrys.Utills.Interfaces.HeatNodeBlock;
+import com.createnuclearindustrys.Utils.Interfaces.HeatNodeBlock;
 import com.simibubi.create.foundation.block.IBE;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;

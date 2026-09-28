@@ -1,6 +1,6 @@
 package com.createnuclearindustrys.Blocks.UraniumOreBlock;
 
-import com.createnuclearindustrys.Manament.RadiationManager;
+import com.createnuclearindustrys.Managment.RadiationManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;

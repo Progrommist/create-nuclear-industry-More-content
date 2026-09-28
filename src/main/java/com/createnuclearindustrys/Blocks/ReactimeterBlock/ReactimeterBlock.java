@@ -1,9 +1,7 @@
 package com.createnuclearindustrys.Blocks.ReactimeterBlock;
 
-import com.createnuclearindustrys.Blocks.HeatGaugeBlock.HeatGaugeBlockEntity;
-import com.createnuclearindustrys.Manament.RadiationManager;
-import com.createnuclearindustrys.Utills.Interfaces.HeatNodeBlock;
-import com.createnuclearindustrys.Utills.Interfaces.Heat_syncer;
+import com.createnuclearindustrys.Utils.Interfaces.HeatNodeBlock;
+import com.createnuclearindustrys.Utils.Interfaces.Heat_syncer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;

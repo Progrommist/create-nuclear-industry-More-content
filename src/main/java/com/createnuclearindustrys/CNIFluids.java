@@ -1,5 +1,7 @@
 package com.createnuclearindustrys;
 
+import com.createnuclearindustrys.Fluid.FPSFluid.FPSFluid;
+import com.createnuclearindustrys.Fluid.FPSFluid.FPSFluidType;
 import com.createnuclearindustrys.Fluid.SteamFluid.SteamFluid;
 import com.createnuclearindustrys.Fluid.SteamFluid.SteamFluidType;
 import com.createnuclearindustrys.Fluid.UraniumFluid.UraniumFluid;
@@ -37,6 +39,13 @@ public class CNIFluids {
                             .viscosity(200)
                             .temperature(400)));
 
+    public static final DeferredHolder<FluidType, FPSFluidType> FISSION_PRODUCT_SOLUTION_FLUID_TYPE =
+            FLUID_TYPES.register("fission_product_solution", () -> new FPSFluidType(
+                    FluidType.Properties.create()
+                            .density(-200)
+                            .viscosity(200)
+                            .temperature(400)));
+
     // ── Fluids ──────────────────────────────────────────────────────────────
 
     public static final DeferredHolder<Fluid, SteamFluid.Still> STEAM_STILL =
@@ -49,6 +58,11 @@ public class CNIFluids {
             FLUIDS.register("gaseous_uranium", UraniumFluid.Still::new);
     public static final DeferredHolder<Fluid, UraniumFluid.Flowing> URANIUM_FLUID_FLOWING =
             FLUIDS.register("flowing_gaseous_uranium", UraniumFluid.Flowing::new);
+
+    public static final DeferredHolder<Fluid, FPSFluid.Still> FISSION_PRODUCT_SOLUTION_STILL =
+            FLUIDS.register("fission_product_solution", FPSFluid.Still::new);
+    public static final DeferredHolder<Fluid, FPSFluid.Flowing> FISSION_PRODUCT_SOLUTION_FLOWING =
+            FLUIDS.register("flowing_fission_product_solution", FPSFluid.Flowing::new);
 
     // ── Particles ───────────────────────────────────────────────────────────
 

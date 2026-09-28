@@ -8,16 +8,20 @@ import com.createnuclearindustrys.Blocks.HeatGaugeBlock.HeatGaugeBlockEntity;
 import com.createnuclearindustrys.Blocks.HeatPipeBlock.HeatPipeBlock;
 import com.createnuclearindustrys.Blocks.HeatSourceBlock.CreativeHeatSourceBlock;
 import com.createnuclearindustrys.Blocks.HeatSourceBlock.CreativeHeatSourceBlockEntity;
+import com.createnuclearindustrys.Blocks.PlutoniumFuelRod.PlutoniumFuelRod;
+import com.createnuclearindustrys.Blocks.PlutoniumFuelRod.PlutoniumFuelRodEntity;
 import com.createnuclearindustrys.Blocks.ReactimeterBlock.ReactimeterBlock;
 import com.createnuclearindustrys.Blocks.ReactimeterBlock.ReactimeterBlockEntity;
 import com.createnuclearindustrys.Blocks.SteamTurbine.SteamTurbineBlock;
 import com.createnuclearindustrys.Blocks.SteamTurbine.SteamTurbineBlockEntity;
 import com.createnuclearindustrys.Blocks.UraniumFuelRod.UraniumFuelRodEntity;
+import com.createnuclearindustrys.Fluid.FPSFluid.FPSFluidBlock;
 import com.createnuclearindustrys.Fluid.SteamFluid.SteamFluidBlock;
 import com.createnuclearindustrys.Blocks.UraniumFuelRod.UraniumFuelRod;
 import com.createnuclearindustrys.Blocks.UraniumOreBlock.UraniumOreBlock;
 import com.createnuclearindustrys.Blocks.ZincRodBlock.ZincRod;
 import com.createnuclearindustrys.Fluid.UraniumFluid.UraniumFluidBlock;
+import com.createnuclearindustrys.SpentFuelRodBlock.SpentFuelRod;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -51,11 +55,17 @@ public class CNIBlocks {
             UraniumFuelRod::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN)
                     .strength(1.5f, 6.0f).requiresCorrectToolForDrops().noOcclusion()
                     .lightLevel(state -> state.getValue(UraniumFuelRod.HEAT_LEVEL)));
+    public static final DeferredBlock<PlutoniumFuelRod> PLUTONIUM_FUEL_ROD = BLOCKS.registerBlock("plutonium_fuel_rod",
+            PlutoniumFuelRod::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN)
+                    .strength(1.5f, 6.0f).requiresCorrectToolForDrops().noOcclusion()
+                    .lightLevel(state -> state.getValue(PlutoniumFuelRod.HEAT_LEVEL)));
 
     public static final DeferredBlock<ZincRod> ZINC_ROD = BLOCKS.registerBlock("zinc_rod",
             ZincRod::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY)
                     .strength(1.5f, 6.0f).requiresCorrectToolForDrops().noOcclusion());
-
+    public static final DeferredBlock<SpentFuelRod> SPENT_FUEL_ROD = BLOCKS.registerBlock("spent_fuel_rod",
+            SpentFuelRod::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY)
+                    .strength(1.5f, 6.0f).requiresCorrectToolForDrops().noOcclusion());
     public static final DeferredBlock<HeatPipeBlock> HEAT_PIPE = BLOCKS.registerBlock("heat_pipe",
             HeatPipeBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE)
                     .strength(1.5f, 6.0f).requiresCorrectToolForDrops());
@@ -82,6 +92,11 @@ public class CNIBlocks {
             p -> new UraniumFluidBlock(CNIFluids.URANIUM_FLUID_STILL.get(), p),
             BlockBehaviour.Properties.of().noCollission().strength(100f).noLootTable().replaceable());
 
+    public static final DeferredBlock<LiquidBlock> FISSION_PRODUCT_SOLUTION_BLOCK = BLOCKS.registerBlock("fission_product_solution",
+            p -> new FPSFluidBlock(CNIFluids.FISSION_PRODUCT_SOLUTION_STILL.get(), p),
+            BlockBehaviour.Properties.of().noCollission().strength(100f).noLootTable().replaceable());
+
+
     // ── Block Entities ──────────────────────────────────────────────────────
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<HeatGaugeBlockEntity>> HEAT_GAUGE_BLOCK_ENTITY =
@@ -101,6 +116,9 @@ public class CNIBlocks {
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<UraniumFuelRodEntity>> URANIUM_FUEL_ROD_ENTITY =
             BLOCK_ENTITY_TYPES.register("uranium_fuel_rod", () -> BlockEntityType.Builder.of(
                     UraniumFuelRodEntity::new, URANIUM_FUEL_ROD.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PlutoniumFuelRodEntity>> PLUTONIUM_FUEL_ROD_ENTITY =
+            BLOCK_ENTITY_TYPES.register("plutonium_fuel_rod", () -> BlockEntityType.Builder.of(
+                    PlutoniumFuelRodEntity::new, PLUTONIUM_FUEL_ROD.get()).build(null));
 
     public static void register(IEventBus modEventBus) {
         BLOCKS.register(modEventBus);

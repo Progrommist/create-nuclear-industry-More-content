@@ -1,8 +1,7 @@
 package com.createnuclearindustrys.Blocks.SteamTurbine;
 
 import com.createnuclearindustrys.CNIBlocks;
-import com.createnuclearindustrys.CreateNuclearIndustrys;
-import com.createnuclearindustrys.Utills.Interfaces.HeatNodeBlock;
+import com.createnuclearindustrys.Utils.Interfaces.HeatNodeBlock;
 import com.simibubi.create.content.kinetics.base.DirectionalKineticBlock;
 import com.simibubi.create.foundation.block.IBE;
 import net.minecraft.core.BlockPos;

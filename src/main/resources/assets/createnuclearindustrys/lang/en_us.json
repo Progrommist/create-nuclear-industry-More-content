@@ -26,6 +26,10 @@
   "item.createnuclearindustrys.potassium_iodide": "Potassium iodide",
   "item.createnuclearindustrys.unprocessed_uranium_fuel_rod": "Unprocessed uranium fuel rod",
   "item.createnuclearindustrys.unprocessed_boron_rod": "Unprocessed boron rod",
+  "item.createnuclearindustrys.spent_crushed_uranium": "Spent crushed uranium",
+  "item.createnuclearindustrys.enriched_plutonium_powder": "Enriched plutonium powder",
+  "item.createnuclearindustrys.plutonium_pills": "Plutonium pills",
+  "item.createnuclearindustrys.radioactive_waste": "Radioactive waste",
 
   "enchantment.createnuclearindustrys.radiation_attack": "Radiation attack",
 
@@ -91,6 +95,8 @@
   "fluid_type.createnuclearindustrys.gaseous_uranium": "Gaseous uranium",
   "item.createnuclearindustrys.steam_bucket": "Bucket of Steam",
   "item.createnuclearindustrys.gaseous_uranium_bucket": "Gaseous uranium bucket",
+  "item.createnuclearindustrys.fission_product_solution_bucket": "Fission product solution bucket",
+  "fluid_type.createnuclearindustrys.fission_product_solution": "Fission product solution",
 
   "createnuclearindustrys.configuration.title": "Create Nuclear Industrys: more content Configs",
   "createnuclearindustrys.configuration.section.createnuclearindustrys.common.toml": "Create Nuclear Industrys: more content Configs",

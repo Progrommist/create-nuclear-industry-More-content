@@ -1,5 +1,6 @@
 package com.createnuclearindustrys;
 
+import com.createnuclearindustrys.Blocks.PlutoniumFuelRod.PlutoniumFuelRodLootTable;
 import com.createnuclearindustrys.Blocks.UraniumFuelRod.UraniumFuelRodLootTable;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.storage.loot.functions.LootItemFunctionType;
@@ -15,5 +16,10 @@ public class CNILootFunctions {
             LOOT_FUNCTIONS.register(
                     "uranium_fuel_rod_loot",
                     () -> new LootItemFunctionType<>(UraniumFuelRodLootTable.CODEC)
+            );
+    public static final Supplier<LootItemFunctionType<PlutoniumFuelRodLootTable>> PLUTONIUM_FUEL_ROD_LOOT_TABLE =
+            LOOT_FUNCTIONS.register(
+                    "plutonium_fuel_rod_loot",
+                    () -> new LootItemFunctionType<>(PlutoniumFuelRodLootTable.CODEC)
             );
 }

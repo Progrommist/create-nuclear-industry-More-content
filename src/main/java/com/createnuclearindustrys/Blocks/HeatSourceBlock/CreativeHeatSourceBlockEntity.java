@@ -1,13 +1,11 @@
 package com.createnuclearindustrys.Blocks.HeatSourceBlock;
 
 import com.createnuclearindustrys.CNIBlocks;
-import com.createnuclearindustrys.CreateNuclearIndustrys;
-import com.createnuclearindustrys.Manament.RadiationManager;
+import com.createnuclearindustrys.Managment.RadiationManager;
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import com.simibubi.create.foundation.blockEntity.behaviour.CenteredSideValueBoxTransform;
 import com.simibubi.create.foundation.blockEntity.behaviour.ValueSettingsBoard;
-import com.simibubi.create.foundation.blockEntity.behaviour.ValueSettingsBehaviour.ValueSettings;
 import com.simibubi.create.foundation.blockEntity.behaviour.ValueSettingsFormatter;
 import com.simibubi.create.foundation.blockEntity.behaviour.scrollValue.ScrollValueBehaviour;
 import net.minecraft.core.BlockPos;

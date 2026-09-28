@@ -1,19 +1,11 @@
 package com.createnuclearindustrys;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
-import net.minecraft.core.component.DataComponents;
-import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.ItemEnchantments;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-
-import java.util.List;
 
 public class CNICreativeTab {
     private static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
@@ -34,6 +26,14 @@ public class CNICreativeTab {
                         output.accept(CNIItems.URANIUM_DOUGH.get());
                         output.accept(CNIItems.URANIUM_BREAD.get());
                         output.accept(CNIItems.MUTATED_BREAD.get());
+
+                        output.accept(CNIItems.SPENT_CRUSHED_URANIUM.get());
+                        output.accept(CNIItems.FISSION_PRODUCT_SOLUTION_BUCKET.get());
+                        output.accept(CNIItems.PLUTONIUM_PILLS.get());
+                        output.accept(CNIItems.ENRICHED_PLUTONIUM_POWDER.get());
+                        output.accept(CNIItems.RADIOACTIVE_WASTE.get());
+                        output.accept(CNIItems.PLUTONIUM_FUEL_ROD_ITEM.get());
+                        output.accept(CNIItems.SPENT_FUEL_ROD_ITEM.get());
 
                         output.accept(CNIItems.BORON_ORE.get());
                         output.accept(CNIItems.POWDERED_BORON.get());

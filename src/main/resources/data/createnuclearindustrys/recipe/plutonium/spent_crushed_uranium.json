@@ -1,0 +1,17 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "createnuclearindustrys:spent_fuel_rod"
+    }
+  ],
+  "processing_time": 400,
+  "results": [
+    {
+      "id": "create:zinc_ingot"
+    },
+    {
+      "id": "createnuclearindustrys:spent_crushed_uranium"
+    }
+  ]
+}

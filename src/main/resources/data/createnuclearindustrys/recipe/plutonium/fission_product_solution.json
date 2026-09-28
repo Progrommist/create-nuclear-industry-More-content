@@ -1,0 +1,19 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "createnuclearindustrys:spent_crushed_uranium"
+    },
+    {
+      "type": "neoforge:single",
+      "amount": 100,
+      "fluid": "minecraft:water"
+    }
+  ],
+  "results": [
+    {
+      "amount": 200,
+      "id": "createnuclearindustrys:fission_product_solution"
+    }
+  ]
+}

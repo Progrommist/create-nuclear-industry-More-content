@@ -1,9 +1,9 @@
 package com.createnuclearindustrys;
 
-import com.createnuclearindustrys.Advencement.meltdown.MeltdownTrigger;
-import com.createnuclearindustrys.Advencement.temperature.TemperatureTrigger;
-import com.createnuclearindustrys.Advencement.thermal_generator_energy.ThermalGeneratorEnergyTrigger;
-import com.createnuclearindustrys.Advencement.thermal_generator_trigger.ThermalGeneratorTrigger;
+import com.createnuclearindustrys.Advancement.meltdown.MeltdownTrigger;
+import com.createnuclearindustrys.Advancement.temperature.TemperatureTrigger;
+import com.createnuclearindustrys.Advancement.thermal_generator_energy.ThermalGeneratorEnergyTrigger;
+import com.createnuclearindustrys.Advancement.thermal_generator_trigger.ThermalGeneratorTrigger;
 import net.minecraft.advancements.CriterionTrigger;
 import net.minecraft.core.registries.Registries;
 import net.neoforged.neoforge.registries.DeferredRegister;

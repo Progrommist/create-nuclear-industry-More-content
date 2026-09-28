@@ -1,6 +1,7 @@
 package com.createnuclearindustrys.Blocks.UraniumFuelRod;
 
 import com.createnuclearindustrys.CNIBlocks;
+import com.createnuclearindustrys.Utils.Interfaces.Emitted.FuelRodBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
@@ -8,20 +9,19 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
 
-public class UraniumFuelRodEntity extends BlockEntity{
+public class UraniumFuelRodEntity extends BlockEntity implements FuelRodBlockEntity {
     private int durability = 100000;
     public UraniumFuelRodEntity(BlockPos pos, BlockState blockState) {
         super(CNIBlocks.URANIUM_FUEL_ROD_ENTITY.get(), pos, blockState);
     }
 
     public int getDurability() {
-        return durability;
+        return this.durability;
     }
-
     public void decDurability() {
         this.durability--;
         if (this.durability <= 0) {
-            level.setBlock(worldPosition, CNIBlocks.ZINC_ROD.get().defaultBlockState(), 3);
+            level.setBlock(worldPosition, CNIBlocks.SPENT_FUEL_ROD.get().defaultBlockState(), 3);
         }
         this.setChanged();
     }

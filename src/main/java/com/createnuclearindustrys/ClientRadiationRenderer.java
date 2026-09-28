@@ -2,7 +2,7 @@ package com.createnuclearindustrys;
 
 import com.createnuclearindustrys.Blocks.BoronControlRod.BoronControlRod;
 import com.createnuclearindustrys.Blocks.HeatPipeBlock.HeatPipeBlock;
-import com.createnuclearindustrys.Manament.RadiationBirthPacket;
+import com.createnuclearindustrys.Managment.RadiationBirthPacket;
 import com.createnuclearindustrys.Blocks.UraniumFuelRod.UraniumFuelRod;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;

@@ -1,5 +1,6 @@
 package com.createnuclearindustrys;
 
+import com.createnuclearindustrys.Blocks.PlutoniumFuelRod.PlutoniumFuelRodItem;
 import com.createnuclearindustrys.Blocks.UraniumFuelRod.UraniumFuelRodItem;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.food.FoodProperties;
@@ -34,6 +35,14 @@ public class CNIItems {
             ITEMS.registerSimpleItem("yellow_cake", new Item.Properties());
     public static final DeferredItem<Item> URANIUM_DOUGH =
             ITEMS.registerSimpleItem("uranium_dough", new Item.Properties());
+    public static final DeferredItem<Item> SPENT_CRUSHED_URANIUM =
+            ITEMS.registerSimpleItem("spent_crushed_uranium", new Item.Properties());
+    public static final DeferredItem<Item> ENRICHED_PLUTONIUM_POWDER =
+            ITEMS.registerSimpleItem("enriched_plutonium_powder", new Item.Properties());
+    public static final DeferredItem<Item> PLUTONIUM_PILLS =
+            ITEMS.registerSimpleItem("plutonium_pills", new Item.Properties());
+    public static final DeferredItem<Item> RADIOACTIVE_WASTE =
+            ITEMS.registerSimpleItem("radioactive_waste", new Item.Properties());
 
     public static final DeferredItem<Item> POTASSIUM_IODIDE =
             ITEMS.registerSimpleItem("potassium_iodide",
@@ -69,6 +78,8 @@ public class CNIItems {
 
     public static final DeferredItem<Item> UNPROCESSED_URANIUM_FUEL_ROD =
             ITEMS.registerSimpleItem("unprocessed_uranium_fuel_rod", new Item.Properties());
+    public static final DeferredItem<Item> UNPROCESSED_PLUTONIUM_FUEL_ROD =
+            ITEMS.registerSimpleItem("unprocessed_plutonium_fuel_rod", new Item.Properties());
     public static final DeferredItem<Item> UNPROCESSED_BORON_ROD =
             ITEMS.registerSimpleItem("unprocessed_boron_rod", new Item.Properties());
 
@@ -89,9 +100,18 @@ public class CNIItems {
                             .stacksTo(1)
             )
     );
+    public static final DeferredItem<BlockItem> PLUTONIUM_FUEL_ROD_ITEM =
+            ITEMS.register("plutonium_fuel_rod",() -> new PlutoniumFuelRodItem(CNIBlocks.PLUTONIUM_FUEL_ROD.get(),
+                            new Item.Properties()
+                                    .durability(600000)
+                                    .stacksTo(1)
+                    )
+            );
 
     public static final DeferredItem<BlockItem> ZINC_ROD_ITEM =
             ITEMS.registerSimpleBlockItem("zinc_rod", CNIBlocks.ZINC_ROD);
+    public static final DeferredItem<BlockItem> SPENT_FUEL_ROD_ITEM =
+            ITEMS.registerSimpleBlockItem("spent_fuel_rod", CNIBlocks.SPENT_FUEL_ROD);
 
     public static final DeferredItem<BlockItem> HEAT_PIPE_ITEM =
             ITEMS.registerSimpleBlockItem("heat_pipe", CNIBlocks.HEAT_PIPE);
@@ -117,6 +137,11 @@ public class CNIItems {
     public static final DeferredItem<BucketItem> URANIUM_FLUID_BUCKET =
             ITEMS.register("gaseous_uranium_bucket",
                     () -> new BucketItem(CNIFluids.URANIUM_FLUID_STILL.get(),
+                            new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
+
+    public static final DeferredItem<BucketItem> FISSION_PRODUCT_SOLUTION_BUCKET =
+            ITEMS.register("fission_product_solution_bucket",
+                    () -> new BucketItem(CNIFluids.FISSION_PRODUCT_SOLUTION_STILL.get(),
                             new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
     public static void register(IEventBus modEventBus) {
         ITEMS.register(modEventBus);
