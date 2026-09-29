@@ -36,7 +36,7 @@ public class CommonInfo {
     }
     public static float getAbsorption(BlockState state) {
         Block b = state.getBlock();
-        if (b instanceof BoronControlRod) return 0.6f;
+        if (b instanceof BoronControlRod) return 0.9f;
         if (b == Blocks.IRON_BLOCK || b instanceof UraniumFuelRod || b instanceof HeatPipeBlock || b instanceof PlutoniumFuelRod) return 0f;
         if (b == Blocks.GOLD_BLOCK || b == Blocks.DIAMOND_BLOCK || b == Blocks.NETHERITE_BLOCK) return 0.05f;
         if (b == Blocks.OBSIDIAN || b == Blocks.CRYING_OBSIDIAN) return 0.4f;

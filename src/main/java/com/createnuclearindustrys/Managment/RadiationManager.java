@@ -377,6 +377,7 @@ public class RadiationManager extends SavedData {
         BlockPos pos = BlockPos.containing(point);
         if (!level.isLoaded(pos)) return true;
         VoxelShape shape = level.getBlockState(pos).getCollisionShape(level, pos);
+
         if (shape.isEmpty()) return false;
         double lx = point.x - pos.getX();
         double ly = point.y - pos.getY();

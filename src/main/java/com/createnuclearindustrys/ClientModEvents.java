@@ -23,6 +23,7 @@ public class ClientModEvents {
         event.enqueueWork(() -> {
             registerTooltip(CNIItems.BORON_CONTROL_ROD_ITEM.get());
             registerTooltip(CNIItems.URANIUM_FUEL_ROD_ITEM.get());
+            registerTooltip(CNIItems.PLUTONIUM_FUEL_ROD_ITEM.get());
             registerTooltip(CNIItems.HEAT_GAUGE_ITEM.get());
             registerTooltip(CNIItems.MUTATED_BREAD.get());
             registerTooltip(CNIItems.URANIUM_BREAD.get());

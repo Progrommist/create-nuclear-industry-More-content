@@ -1,5 +1,6 @@
 package com.createnuclearindustrys;
 
+import net.createmod.ponder.foundation.PonderIndex;
 import net.minecraft.client.Minecraft;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -19,6 +20,8 @@ public class CreateNuclearIndustrysClient {
 
     @SubscribeEvent
     static void onClientSetup(FMLClientSetupEvent event) {
+        PonderIndex.addPlugin(new CNIPonderPlugin());
+
         CreateNuclearIndustrys.LOGGER.info("HELLO FROM CLIENT SETUP");
         CreateNuclearIndustrys.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
     }
